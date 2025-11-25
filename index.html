@@ -2,90 +2,233 @@
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>آپادانا</title>
 <style>
-    /* فونت پایه */
-    @font-face {
-        font-family: 'MyFont';
-        src: url('MyFont.woff2') format('woff2'); /* بعداً لینک فونت واقعی یا base64 بذار */
-        font-weight: bold;
-    }
-
-    body {
-        margin: 0;
-        font-family: 'MyFont', sans-serif;
-        background-color: #FFFF5E00;
-        color: #fff;
-    }
-
-    /* هدر */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-    }
-
-    .menu-button {
-        width: 40px;
-        height: 40px;
-        background-color: rgba(0,0,0,0.2);
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        font-size: 24px;
-    }
-
-    /* دکمه ورود */
-    .start-button {
-        display: block;
-        margin: 50px auto;
-        padding: 15px 30px;
-        background-color: #ffffff;
-        color: #FF5E00;
-        font-weight: bold;
-        font-size: 20px;
-        border: none;
-        border-radius: 15px;
-        cursor: pointer;
-        text-decoration: none;
-        text-align: center;
-    }
-
-    /* بخش های اصلی */
-    .section {
-        margin: 30px;
-        padding: 20px;
-        background-color: rgba(0,0,0,0.2);
-        border-radius: 15px;
-    }
-
+/* فونت Base64 خودت رو جایگذاری کن */
+@font-face {
+    font-family: 'ApadanaFont';
+    src: url('BASE64_FONT_HERE') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin:0;
+    padding:0;
+    font-family: 'ApadanaFont', sans-serif;
+    background-color: #ffffff;
+}
+header {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.menu-button {
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:24px;
+}
+.main-button {
+    width:220px;
+    height:65px;
+    border-radius:20px;
+    font-weight:bold;
+    font-size:22px;
+    color:#ffffff;
+    background-color:#FFA500;
+    margin:30px auto;
+    display:block;
+    cursor:pointer;
+    border:none;
+    text-align:center;
+}
+.sections {
+    margin:20px 15px;
+}
+.section {
+    margin-bottom:25px;
+    padding:25px;
+    border-radius:20px;
+    background-color:#f5f5f5;
+    position: relative;
+}
+.section h2 {
+    margin:0;
+    font-size:20px;
+    margin-bottom:10px;
+}
+.section button {
+    margin-top:15px;
+    border:none;
+    padding:12px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    background-color:#FFA500;
+    color:#fff;
+    font-weight:bold;
+    font-size:16px;
+}
+.actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    justify-content:center;
+    margin:25px 0;
+}
+.action-item {
+    width:110px;
+    height:110px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    cursor:pointer;
+    background-color:#FFE0B2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+.action-item:hover {
+    transform: scale(1.05);
+}
+.action-item i {
+    font-size:36px;
+    margin-bottom:5px;
+}
+/* فرم ورود / ثبت نام */
+.modal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+.modal-content {
+    background-color:#fff;
+    padding:35px;
+    border-radius:20px;
+    max-width:400px;
+    width:90%;
+    text-align:center;
+}
+.modal-content input, .modal-content button {
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border-radius:12px;
+    font-size:16px;
+}
+.modal-content h2 {
+    margin-bottom:20px;
+}
 </style>
 </head>
 <body>
-
 <header>
-    <div class="menu-button">&#9776;</div>
+  <div class="menu-button">&#9776;</div>
 </header>
 
-<a href="https://ble.ir/join/6eJFoidRH4" class="start-button">شروع ماجرا ✈</a>
+<button class="main-button" onclick="openModal()">شروع ماجرا ✈</button>
 
-<div class="section">
-    <h2>بخش اول</h2>
-    <p>متن این بخش رو بعداً تغییر بده</p>
+<div class="sections" id="sections">
+  <!-- پاتوق‌ها اضافه می‌شوند -->
 </div>
 
-<div class="section">
-    <h2>بخش دوم</h2>
-    <p>متن این بخش رو بعداً تغییر بده</p>
+<div class="actions" id="actions">
+  <!-- کنش‌ها بر اساس سن اضافه می‌شوند -->
 </div>
 
-<div class="section">
-    <h2>بخش سوم</h2>
-    <p>متن این بخش رو بعداً تغییر بده</p>
+<!-- فرم ورود / ثبت نام -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+      <h2>ثبت نام</h2>
+      <input type="text" id="name" placeholder="نام شما">
+      <input type="number" id="age" placeholder="سن شما">
+      <button onclick="registerUser()">ثبت نام</button>
+  </div>
 </div>
 
+<script>
+const sectionsData = [
+    {name:'پاتوق ۱', bg:'BASE64_PLACEHOLDER_1'},
+    {name:'پاتوق ۲', bg:'BASE64_PLACEHOLDER_2'},
+    {name:'پاتوق ۳', bg:'BASE64_PLACEHOLDER_3'}
+];
+
+const actionsData = [
+    {name:'کنش کودک ۱', icon:'child_care', minAge:0, maxAge:12},
+    {name:'کنش کودک ۲', icon:'emoji_people', minAge:0, maxAge:12},
+    {name:'کنش کودک ۳', icon:'sports_soccer', minAge:0, maxAge:12},
+    {name:'کنش نوجوان ۱', icon:'school', minAge:13, maxAge:18},
+    {name:'کنش نوجوان ۲', icon:'theater_comedy', minAge:13, maxAge:18},
+    {name:'کنش نوجوان ۳', icon:'movie', minAge:13, maxAge:18},
+    {name:'کنش نوجوان ۴', icon:'headphones', minAge:13, maxAge:18},
+    {name:'کنش بزرگسال ۱', icon:'work', minAge:19, maxAge:50},
+    {name:'کنش بزرگسال ۲', icon:'local_cafe', minAge:19, maxAge:50},
+    {name:'کنش بزرگسال ۳', icon:'fitness_center', minAge:19, maxAge:50},
+    {name:'کنش بزرگسال ۴', icon:'menu_book', minAge:19, maxAge:50},
+    {name:'کنش مشترک کودک و نوجوان', icon:'emoji_events', minAge:0, maxAge:18},
+    {name:'کنش مشترک نوجوان و بزرگسال', icon:'lightbulb', minAge:13, maxAge:50},
+    {name:'کنش مشترک همه', icon:'public', minAge:0, maxAge:50},
+    {name:'کنش ویژه بزرگسال', icon:'spa', minAge:25, maxAge:50}
+];
+
+function openModal(){
+  document.getElementById('modal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+
+function registerUser(){
+    const age = parseInt(document.getElementById('age').value);
+    const name = document.getElementById('name').value;
+    if(!age || !name) return alert('لطفا نام و سن خود را وارد کنید');
+    closeModal();
+    loadSections();
+    loadActions(age);
+}
+
+function loadSections(){
+    const container = document.getElementById('sections');
+    container.innerHTML = '';
+    sectionsData.forEach(sec=>{
+        const div = document.createElement('div');
+        div.className='section';
+        div.style.backgroundImage=`url('${sec.bg}')`;
+        div.style.backgroundSize='cover';
+        div.style.backgroundPosition='center';
+        div.innerHTML=`<h2>${sec.name}</h2><button>کشفش کن! 🧳</button>`;
+        container.appendChild(div);
+    });
+}
+
+function loadActions(age){
+    const container = document.getElementById('actions');
+    container.innerHTML='';
+    actionsData.forEach(act=>{
+        if(age>=act.minAge && age<=act.maxAge){
+            const div = document.createElement('div');
+            div.className='action-item';
+            div.innerHTML=`<i class='material-icons-outlined'>${act.icon}</i><span>${act.name}</span>`;
+            container.appendChild(div);
+        }
+    });
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </body>
 </html>

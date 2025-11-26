@@ -2,57 +2,218 @@
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حساب کاربری</title>
+<title>آپادانا</title>
 <style>
-  body { font-family:'MyFont', sans-serif; background:#fff5e0; padding:20px; }
-  .card { background:#ffd6a5; padding:15px; border-radius:12px; margin-bottom:10px; }
-  button { background:#ff5e00; color:white; border:none; border-radius:8px; padding:10px; cursor:pointer; }
+/* جای فونت Base64 خودت */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('data:font/woff2;base64,PUT_YOUR_FONT_BASE64_HERE') format('woff2');
+  font-weight: bold;
+}
+body {
+  margin: 0;
+  font-family: 'CustomFont', sans-serif;
+  background: #fff;
+  direction: rtl;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #FF5E00;
+}
+header button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  font-weight: bold;
+}
+.slider {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.slide {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  animation: slideAnim 10s infinite;
+}
+@keyframes slideAnim {
+  0%, 33% {background-position: left;}
+  34%, 66% {background-position: center;}
+  67%, 100% {background-position: right;}
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+.action-card {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 12px;
+  background-color: #FFE2B3; /* بعداً Base64 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.action-card img {
+  width: 60px;
+  height: 60px;
+}
+.action-card button {
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 4px 8px;
+  border: none;
+  background: #FF5E00;
+  color: #fff;
+  cursor: pointer;
+}
+.profile {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #EEE;
+  padding: 10px;
+}
+.profile div { margin: 5px 0; }
+.profile button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
-<h1>حساب کاربری</h1>
-<div class="card">اسم کاربر: <span id="username">کاربر</span></div>
-<div class="card">امتیاز: <span id="score">0</span></div>
-<div class="card">کنش‌های انجام شده: <span id="actions-done">هیچکدام</span></div>
-<button id="edit-btn">ویرایش اطلاعات</button>
-<button id="logout-btn">خروج</button>
+
+<header>
+  <button id="menu-btn">☰ منو</button>
+  <button id="start-btn">شروع ماجرا ✈</button>
+</header>
+
+<div class="slider">
+  <div class="slide" style="background-image:url('PUT_YOUR_BASE64_IMAGE_1_HERE');"></div>
+  <div class="slide" style="background-image:url('PUT_YOUR_BASE64_IMAGE_2_HERE');"></div>
+  <div class="slide" style="background-image:url('PUT_YOUR_BASE64_IMAGE_3_HERE');"></div>
+</div>
+
+<section class="actions">
+  <div class="action-card" data-id="1">
+    <img src="PUT_BASE64_ICON_1_HERE">
+    <button class="action-btn" data-id="1">دوبله</button>
+  </div>
+  <div class="action-card" data-id="2">
+    <img src="PUT_BASE64_ICON_2_HERE">
+    <button class="action-btn" data-id="2">نقاشی</button>
+  </div>
+  <div class="action-card" data-id="3">
+    <img src="PUT_BASE64_ICON_3_HERE">
+    <button class="action-btn" data-id="3">ویدیو کوتاه</button>
+  </div>
+</section>
+
+<div class="profile">
+  <div>اسم: <span id="username">کاربر</span></div>
+  <div>امتیاز: <span id="score">0</span></div>
+  <div>کنش‌های انجام شده: <span id="actions-done">هیچکدام</span></div>
+  <button id="edit-btn">ویرایش</button>
+  <button id="logout-btn">خروج</button>
+</div>
 
 <script>
-// تابع ذخیره در LocalStorage
-function saveProfile() {
-  localStorage.setItem('username', document.getElementById('username').textContent);
-  localStorage.setItem('score', document.getElementById('score').textContent);
-  localStorage.setItem('actionsDone', document.getElementById('actions-done').textContent);
+// لیست کنش‌ها
+const actionsList = [
+  { id: 1, name: "دوبله", points: 10 },
+  { id: 2, name: "نقاشی", points: 5 },
+  { id: 3, name: "ویدیو کوتاه", points: 15 },
+];
+
+// Load user
+function loadUser() {
+  const username = localStorage.getItem('username') || 'کاربر';
+  const score = parseInt(localStorage.getItem('score')) || 0;
+  const actionsDone = JSON.parse(localStorage.getItem('actionsDone')) || [];
+  return { username, score, actionsDone };
 }
 
-// تابع لود اطلاعات از LocalStorage
-function loadProfile() {
-  const username = localStorage.getItem('username');
-  const score = localStorage.getItem('score');
-  const actionsDone = localStorage.getItem('actionsDone');
-
-  if(username) document.getElementById('username').textContent = username;
-  if(score) document.getElementById('score').textContent = score;
-  if(actionsDone) document.getElementById('actions-done').textContent = actionsDone;
+// Save user
+function saveUser(user) {
+  localStorage.setItem('username', user.username);
+  localStorage.setItem('score', user.score);
+  localStorage.setItem('actionsDone', JSON.stringify(user.actionsDone));
 }
 
-// ویرایش اطلاعات
-document.getElementById('edit-btn').addEventListener('click', () => {
-  const newName = prompt('اسم جدید کاربر:', document.getElementById('username').textContent);
-  if(newName) document.getElementById('username').textContent = newName;
-  saveProfile();
-});
+// Do action
+function doAction(actionId) {
+  const user = loadUser();
+  const action = actionsList.find(a => a.id === actionId);
+  if (!action) return;
 
-// خروج
-document.getElementById('logout-btn').addEventListener('click', () => {
-  alert('خروج از حساب انجام شد.');
-  // اگر بخوای اطلاعات پاک بشه:
-  // localStorage.clear();
-});
+  if (!user.actionsDone.includes(action.name)) {
+    user.actionsDone.push(action.name);
+    user.score += action.points;
+    saveUser(user);
+    alert(`کنش "${action.name}" انجام شد! امتیاز: ${user.score}`);
+    updateUI(user);
+  } else {
+    alert(`کنش "${action.name}" قبلا انجام شده.`);
+  }
+}
 
-// لود اولیه هنگام باز شدن صفحه
-loadProfile();
+// Update UI
+function updateUI(user) {
+  const scoreEl = document.getElementById('score');
+  const actionsEl = document.getElementById('actions-done');
+  const usernameEl = document.getElementById('username');
+
+  if(scoreEl) scoreEl.textContent = user.score;
+  if(actionsEl) actionsEl.textContent = user.actionsDone.join(', ') || 'هیچکدام';
+  if(usernameEl) usernameEl.textContent = user.username;
+}
+
+// Events
+document.addEventListener('DOMContentLoaded', () => {
+  const user = loadUser();
+  updateUI(user);
+
+  document.querySelectorAll('.action-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const actionId = parseInt(btn.dataset.id);
+      doAction(actionId);
+    });
+  });
+
+  const editBtn = document.getElementById('edit-btn');
+  if(editBtn){
+    editBtn.addEventListener('click', () => {
+      const newName = prompt('اسم جدید کاربر:', user.username);
+      if(newName){
+        user.username = newName;
+        saveUser(user);
+        updateUI(user);
+      }
+    });
+  }
+
+  const logoutBtn = document.getElementById('logout-btn');
+  if(logoutBtn){
+    logoutBtn.addEventListener('click', () => {
+      alert('خروج انجام شد.');
+      // localStorage.clear();
+    });
+  }
+});
 </script>
 </body>
 </html>

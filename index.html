@@ -1,67 +1,188 @@
-<button class="start-btn">
-  <span class="icon">✈</span>
-  <span class="text">شروع کن!</span>
-</button>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>آپادانا — نسخه وب‌ویو پویا</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-<style>
-.start-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  border: none;
-  border-radius: 42px; /* گوشه‌ها */
-  background: linear-gradient(90deg, #fe8d47 0%, #fd89c6 100%);
-  cursor: pointer;
-  overflow: hidden;
-}
+<header class="header">
+  <div class="left">
+    <button class="start-btn" id="startBtn" title="شروع کن!">
+      <span class="icon" id="startIcon">✈</span>
+      <span>شروع کن!</span>
+    </button>
+  </div>
+</header>
 
-.start-btn .icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.2);
-  border-radius: 12px;
-  font-size: 14px;
-}
+<div class="container">
+  <div class="slider" id="slider">
+    <div class="slides" id="slides">
+      <div class="slide" style="background-image:url('__REPLACE_IMG_SLIDE_1__')"></div>
+      <div class="slide" style="background-image:url('__REPLACE_IMG_SLIDE_2__')"></div>
+      <div class="slide" style="background-image:url('__REPLACE_IMG_SLIDE_3__')"></div>
+    </div>
+    <div class="indicators" id="indicators">
+      <button data-i="0" class="active"></button>
+      <button data-i="1"></button>
+      <button data-i="2"></button>
+    </div>
+  </div>
+  
+  <section>
+    <h3 style="margin:14px 0 6px 0; padding-left:6px">پاتوق‌ها</h3>
+    <div class="actions-grid" id="actionsGrid"></div>
+  </section>
+</div>
 
-.start-btn:focus {
-  outline: none;
-}
+<nav class="footer">
+  <button class="fbtn" data-action="home"><div class="fi">🏠</div><div>خانه</div></button>
+  <button class="fbtn" data-action="actions"><div class="fi">🗂️</div><div>پاتوق‌ها</div></button>
+  <button class="fbtn" data-action="explore"><div class="fi">🔍</div><div>کاوش</div></button>
+  <button class="fbtn" data-action="profile"><div class="fi">👤</div><div>پروفایل</div></button>
+</nav>
 
-/* ripple effect */
-.start-btn .ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes ripple-animation {
-  to { transform: scale(4); opacity: 0; }
-}
-</style>
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true" id="modal">
+    <div class="head">
+      <strong id="modalTitle">عنوان پاتوق</strong>
+      <button id="modalClose" aria-label="بستن">✖</button>
+    </div>
+    <img id="modalImage" src="" alt="تصویر پاتوق">
+    <p id="modalDesc" style="color:#444"></p>
+    <div style="display:flex;gap:10px;margin-top:12px;">
+      <button id="doAction" class="start-btn" style="flex:1">انجام کن و امتیاز بگیر</button>
+      <button id="gotoActionPage" style="flex:1;border-radius:10px;border:1px solid #ddd;background:#fff;">مشاهده صفحهٔ پاتوق</button>
+    </div>
+  </div>
+</div>
 
 <script>
-const btn = document.querySelector('.start-btn');
+const ACTIONS=[
+  {id:1,title:'دوبله باحال',desc:'صداتو ضبط کن و دوبله کن، خلاصه حال کن!',img:'__REPLACE_ACTION_IMG_1__',points:10},
+  {id:2,title:'نقاشی دیجیتال',desc:'یه اثر کوچیک بساز و نشونمون بده',img:'__REPLACE_ACTION_IMG_2__',points:8},
+  {id:3,title:'ویدیو کوتاه',desc:'کلیپ کوتاه بساز و آپلود کن',img:'__REPLACE_ACTION_IMG_3__',points:12},
+];
+let USER=JSON.parse(localStorage.getItem('apadana_user'))||{name:null,score:0,history:[]};
+function saveUser(){localStorage.setItem('apadana_user',JSON.stringify(USER));}
 
-btn.addEventListener('click', function(e) {
-  const ripple = document.createElement('span');
-  ripple.className = 'ripple';
-  const rect = btn.getBoundingClientRect();
-  const size = Math.max(rect.width, rect.height);
-  ripple.style.width = ripple.style.height = size + 'px';
-  ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
-  ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
-  btn.appendChild(ripple);
-  setTimeout(() => { ripple.remove(); }, 600);
+const grid=document.getElementById('actionsGrid');
+function renderCards(){
+  grid.innerHTML='';
+  ACTIONS.forEach(a=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`
+      <img class="thumb" src="${a.img}" alt="${a.title}">
+      <h4>${a.title}</h4>
+      <p>${a.desc}</p>
+      <button class="discover" data-id="${a.id}">کشفش کن! 🧳</button>
+    `;
+    grid.appendChild(card);
+  });
+  document.querySelectorAll('.discover').forEach(btn=>{
+    btn.addEventListener('click',()=>openModal(parseInt(btn.dataset.id)));
+  });
+}
+renderCards();
+
+const overlay=document.getElementById('overlay');
+const modalTitle=document.getElementById('modalTitle');
+const modalImage=document.getElementById('modalImage');
+const modalDesc=document.getElementById('modalDesc');
+const doActionBtn=document.getElementById('doAction');
+const gotoActionPageBtn=document.getElementById('gotoActionPage');
+let currentAction=null;
+
+function openModal(id){
+  const act=ACTIONS.find(x=>x.id===id);if(!act)return;
+  currentAction=act;
+  modalTitle.textContent=act.title;
+  modalImage.src=act.img||'';
+  modalDesc.textContent=act.desc;
+  overlay.classList.add('show');
+  doActionBtn.onclick=()=>{
+    if(!USER.name){promptLogin();return;}
+    USER.score=(USER.score||0)+(act.points||0);
+    USER.history=USER.history||[];
+    USER.history.push({id:act.id,title:act.title,at:new Date().toISOString(),points:act.points});
+    saveUser();
+    alert('آفرین! '+(act.points||0)+' امتیاز گرفتی — الان: '+USER.score);
+    overlay.classList.remove('show');
+  };
+  gotoActionPageBtn.onclick=()=>{
+    window.location.hash='action-'+act.id;
+    overlay.classList.remove('show');
+    showActionPage(act);
+  };
+}
+document.getElementById('modalClose').onclick=()=>overlay.classList.remove('show');
+
+function showActionPage(act){alert('صفحهٔ پاتوق: '+act.title+'\n'+(act.desc||'توضیحی نیست.'));}
+
+function promptLogin(){
+  const name=prompt('اسم خودتو بذار (مثلاً: سارا)')||null;
+  if(!name)return;
+  USER.name=name;
+  USER.score=USER.score||0;
+  USER.history=USER.history||[];
+  saveUser();
+  renderTopBadge();
+}
+
+function openProfile(){
+  const name=USER.name||'مهمان';
+  const score=USER.score||0;
+  const hist=(USER.history&&USER.history.length)?USER.history.map(h=>`${h.title} (+${h.points})`).join('\n'):'هیچکدوم';
+  alert(`پروفایل:\nاسم: ${name}\nامتیاز: ${score}\nکنش‌ها:\n${hist}`);
+}
+
+function renderTopBadge(){
+  const hb=document.getElementById('startBtn');
+  if(USER&&USER.name){hb.innerHTML=`<span class="icon">👋</span><span>سلام، ${USER.name.split(' ')[0]}!</span>`;}
+  else{hb.innerHTML=`<span class="icon">✈</span><span>شروع کن!</span>`;}
+}
+
+function init(){renderTopBadge();renderCards();USER=JSON.parse(localStorage.getItem('apadana_user'))||USER;}
+init();
+
+document.getElementById('startBtn').addEventListener('click',()=>{
+  if(USER&&USER.name){document.querySelector('.container').scrollIntoView({behavior:'smooth'});}
+  else{promptLogin();renderTopBadge();}
+});
+
+/* Slider indicators */
+const indicators=document.getElementById('indicators');
+const slidesEl=document.getElementById('slides');
+indicators.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const i=parseInt(btn.dataset.i);
+    slidesEl.style.animation='none';
+    slidesEl.style.transform=`translateX(${-100*i}%)`;
+    indicators.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    setTimeout(()=>{
+      slidesEl.style.animation='slideAnim 12s linear infinite';
+      slidesEl.style.transform='';
+      indicators.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      indicators.querySelectorAll('button')[0].classList.add('active');
+    },5000);
+  });
+});
+
+/* Footer SPA-like */
+document.querySelectorAll('.footer .fbtn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const a=b.dataset.action;
+    if(a==='home'){window.scrollTo({top:0,behavior:'smooth'});}
+    else if(a==='actions'){document.querySelector('.container').scrollIntoView({behavior:'smooth'});}
+    else if(a==='explore'){alert('صفحهٔ کاوش — بعداً اضافه می‌شود');}
+    else if(a==='profile'){openProfile();}
+  });
 });
 </script>
+
+</body>
+</html>

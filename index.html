@@ -1,194 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>آپادانا — نسخه وب‌ویو پویا</title>
-<link rel="stylesheet" href="CSS/app.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نمونه شبیه‌سازی baomidt - HTML</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffeef2; /* light pink */
+      --accent:#ff5168; /* red/pink */
+      --deep:#072741; /* dark blue */
+      --card:#123452;
+      --muted:#f7dfe6;
+      --rounded:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Vazirmatn',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Tahoma;
+      background:var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* container */
+    .wrap{max-width:920px;margin:0 auto;padding:16px}
+
+    /* top banner */
+    .top-banner{background:linear-gradient(90deg,#ffd47a,#ffcf7a);border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+    .top-banner img{max-width:100%;height:auto;border-radius:12px}
+
+    /* dark hero */n
+    .hero-dark{background:#0b2b33;color:#fff;border-radius:14px;padding:26px;margin-bottom:18px;position:relative;overflow:hidden}
+    .hero-dark .figure{float:right;margin-left:18px}
+    .hero-dark h2{font-size:28px;margin:6px 0}
+    .hero-dark p{opacity:0.9}
+
+    /* blue grid */
+    .blue-grid{background:#0f5167;padding:18px;border-radius:12px;color:#fff;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:18px}
+    .card-blue{background:rgba(255,255,255,0.06);padding:20px;border-radius:12px;text-align:center}
+    .card-blue .icon{font-size:28px;margin-bottom:8px}
+    .card-blue p{margin:0;font-weight:600}
+
+    /* sections like watch, courses */
+    .section{margin:18px 0}
+    .yellow-cta{background:#ffd94d;padding:16px;border-radius:12px;display:flex;align-items:center;gap:12px}
+    .yellow-cta img{width:84px;height:84px}
+    .yellow-cta .txt{font-weight:700;font-size:18px}
+
+    .big-card{background:linear-gradient(180deg,#0b5a7a,#0a4b66);color:#fff;padding:22px;border-radius:18px;margin:12px 0;display:flex;align-items:center;gap:18px}
+    .big-card .info{flex:1}
+    .big-card h3{margin:0 0 6px 0}
+
+    /* course grid */
+    .courses{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .course{background:#10283a;border-radius:12px;padding:12px;color:#fff;min-height:90px;display:flex;align-items:end}
+    .course .title{font-weight:700}
+
+    /* footer bottom nav */
+    .bottom-nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;gap:8px;padding:10px;background:linear-gradient(90deg,#ff6b78,#ff4b5f);border-top-left-radius:22px;border-top-right-radius:22px}
+    .bottom-nav a{color:#fff;text-decoration:none;font-weight:700;font-size:14px;display:flex;flex-direction:column;align-items:center}
+
+    /* responsive tweaks */
+    @media(min-width:800px){
+      .wrap{padding:28px}
+      .blue-grid{grid-template-columns:repeat(4,1fr)}
+      .courses{grid-template-columns:repeat(4,1fr)}
+    }
+
+    /* small helpers */
+    .badge{width:36px;height:36px;border-radius:999px;background:#eaf6f0;display:inline-flex;align-items:center;justify-content:center;color:#0a6b4d;font-weight:800}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <!-- header / hero -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="badge">✓</div>
+        <div style="font-weight:800">شبکه بازی امید</div>
+      </div>
+      <div style="opacity:0.7">baomidtv.com</div>
+    </div>
 
-<header class="header">
-  <div class="left">
-    <button class="start-btn" id="startBtn" title="شروع کن!">
-      <span class="icon" id="startIcon">✈</span>
-      <span>شروع کن!</span>
-    </button>
+    <!-- big top banner (replace src with your image) -->
+    <div class="top-banner">
+      <img src="https://via.placeholder.com/820x220.png?text=بنر+بزرگ+بالا" alt="بنر اصلی">
+    </div>
+
+    <!-- dark hero (religious banner in provided screenshots) -->
+    <div class="hero-dark">
+      <div class="figure"><img src="https://via.placeholder.com/200x200.png?text=شخصیت" alt="figure" style="width:160px;border-radius:12px"></div>
+      <div>
+        <h2>خورشید پنهان در... </h2>
+        <p>نمایش آیینی به مناسبت ایام فاطمیه — اطلاعات رویداد و لینک رزرو</p>
+      </div>
+    </div>
+
+    <!-- blue buttons grid -->
+    <div class="blue-grid">
+      <div class="card-blue"><div class="icon">🎮</div><p>بازی بین</p></div>
+      <div class="card-blue"><div class="icon">📘</div><p>بازی دان</p></div>
+      <div class="card-blue"><div class="icon">📱</div><p>گوشی بازی</p></div>
+      <div class="card-blue"><div class="icon">⚽</div><p>دست به توپ</p></div>
+    </div>
+
+    <!-- second row of categories (red background in screenshot) -->
+    <div style="background:#ff5e73;padding:18px;border-radius:12px;color:#fff;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:center;margin-bottom:18px">
+      <div style="text-align:center"> <div style="font-size:28px">🎤</div><div style="font-weight:800;margin-top:6px">دوربین آزاد</div></div>
+      <div style="text-align:center"> <div style="font-size:28px">🎭</div><div style="font-weight:800;margin-top:6px">تولید محتوا</div></div>
+      <div style="text-align:center"> <div style="font-size:28px">🎬</div><div style="font-weight:800;margin-top:6px">نویساز</div></div>
+    </div>
+
+    <!-- yellow CTA -->
+    <div class="yellow-cta section">
+      <img src="https://via.placeholder.com/84x84.png?text=تلویزیون" alt="tv">
+      <div class="txt">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
+    </div>
+
+    <!-- big card courses -->
+    <div class="big-card">
+      <div style="width:120px;height:80px;background:rgba(255,255,255,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center">🎧</div>
+      <div class="info">
+        <h3>دوره‌های آموزشی</h3>
+        <p style="opacity:0.9">دوره‌های متنوع طراحی، عکاسی، انیمیشن و نقاشی دیجیتال</p>
+      </div>
+      <div style="min-width:80px;text-align:center"><button style="background:#fff;border:none;padding:8px 12px;border-radius:10px;font-weight:800">مشاهده</button></div>
+    </div>
+
+    <!-- courses grid -->
+    <div class="courses">
+      <div class="course"><div class="title">سطح سوم طراحی لوگو</div></div>
+      <div class="course"><div class="title">سطح سوم عکاسی</div></div>
+      <div class="course"><div class="title">سطح دوم انیمیشن‌سازی</div></div>
+      <div class="course"><div class="title">سطح اول نقاشی دیجیتال</div></div>
+    </div>
+
+    <div style="height:120px"></div> <!-- spacing for bottom nav -->
   </div>
-</header>
 
-<div class="container">
-  <div class="slider" id="slider">
-    <div class="slides" id="slides">
-      <div class="slide" style="background-image:url('__REPLACE_IMG_SLIDE_1__')"></div>
-      <div class="slide" style="background-image:url('__REPLACE_IMG_SLIDE_2__')"></div>
-      <div class="slide" style="background-image:url('__REPLACE_IMG_SLIDE_3__')"></div>
-    </div>
-    <div class="indicators" id="indicators">
-      <button data-i="0" class="active"></button>
-      <button data-i="1"></button>
-      <button data-i="2"></button>
-    </div>
-  </div>
-
-  <section>
-    <h3 style="margin:14px 0 6px 0; padding-left:6px">پاتوق‌ها</h3>
-    <div class="actions-grid" id="actionsGrid"></div>
-  </section>
-</div>
-
-<nav class="footer">
-  <button class="fbtn" data-action="home"><div class="fi">🏠</div><div>خانه</div></button>
-  <button class="fbtn" data-action="actions"><div class="fi">🗂️</div><div>پاتوق‌ها</div></button>
-  <button class="fbtn" data-action="explore"><div class="fi">🔍</div><div>کاوش</div></button>
-  <button class="fbtn" data-action="profile"><div class="fi">👤</div><div>پروفایل</div></button>
-</nav>
-
-<div class="overlay" id="overlay">
-  <div class="modal" role="dialog" aria-modal="true" id="modal">
-    <div class="head">
-      <strong id="modalTitle">عنوان پاتوق</strong>
-      <button id="modalClose" aria-label="بستن">✖</button>
-    </div>
-    <img id="modalImage" src="" alt="تصویر پاتوق">
-    <p id="modalDesc" style="color:#444"></p>
-    <div style="display:flex;gap:10px;margin-top:12px;">
-      <button id="doAction" class="start-btn" style="flex:1">انجام کن و امتیاز بگیر</button>
-      <button id="gotoActionPage" style="flex:1;border-radius:10px;border:1px solid #ddd;background:#fff;">مشاهده صفحهٔ پاتوق</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// اطلاعات پاتوق‌ها
-const ACTIONS=[
-  {id:1,title:'دوبله باحال',desc:'صداتو ضبط کن و دوبله کن، خلاصه حال کن!',img:'__REPLACE_ACTION_IMG_1__',points:10},
-  {id:2,title:'نقاشی دیجیتال',desc:'یه اثر کوچیک بساز و نشونمون بده',img:'__REPLACE_ACTION_IMG_2__',points:8},
-  {id:3,title:'ویدیو کوتاه',desc:'کلیپ کوتاه بساز و آپلود کن',img:'__REPLACE_ACTION_IMG_3__',points:12},
-];
-
-let USER=JSON.parse(localStorage.getItem('apadana_user'))||{name:null,score:0,history:[]};
-function saveUser(){localStorage.setItem('apadana_user',JSON.stringify(USER));}
-
-// نمایش کارت‌ها
-const grid=document.getElementById('actionsGrid');
-function renderCards(){
-  grid.innerHTML='';
-  ACTIONS.forEach(a=>{
-    const card=document.createElement('div');
-    card.className='card';
-    card.innerHTML=`
-      <img class="thumb" src="${a.img}" alt="${a.title}">
-      <h4>${a.title}</h4>
-      <p>${a.desc}</p>
-      <button class="discover" data-id="${a.id}">کشفش کن! 🧳</button>
-    `;
-    grid.appendChild(card);
-  });
-  document.querySelectorAll('.discover').forEach(btn=>{
-    btn.addEventListener('click',()=>openModal(parseInt(btn.dataset.id)));
-  });
-}
-renderCards();
-
-// Modal
-const overlay=document.getElementById('overlay');
-const modalTitle=document.getElementById('modalTitle');
-const modalImage=document.getElementById('modalImage');
-const modalDesc=document.getElementById('modalDesc');
-const doActionBtn=document.getElementById('doAction');
-const gotoActionPageBtn=document.getElementById('gotoActionPage');
-let currentAction=null;
-
-function openModal(id){
-  const act=ACTIONS.find(x=>x.id===id);if(!act)return;
-  currentAction=act;
-  modalTitle.textContent=act.title;
-  modalImage.src=act.img||'';
-  modalDesc.textContent=act.desc;
-  overlay.classList.add('show');
-  doActionBtn.onclick=()=>{
-    if(!USER.name){promptLogin();return;}
-    USER.score=(USER.score||0)+(act.points||0);
-    USER.history=USER.history||[];
-    USER.history.push({id:act.id,title:act.title,at:new Date().toISOString(),points:act.points});
-    saveUser();
-    alert('آفرین! '+(act.points||0)+' امتیاز گرفتی — الان: '+USER.score);
-    overlay.classList.remove('show');
-  };
-  gotoActionPageBtn.onclick=()=>{
-    window.location.hash='action-'+act.id;
-    overlay.classList.remove('show');
-    showActionPage(act);
-  };
-}
-document.getElementById('modalClose').onclick=()=>overlay.classList.remove('show');
-
-function showActionPage(act){alert('صفحهٔ پاتوق: '+act.title+'\n'+(act.desc||'توضیحی نیست.'));}
-
-// ورود کاربر
-function promptLogin(){
-  const name=prompt('اسم خودتو بذار (مثلاً: سارا)')||null;
-  if(!name)return;
-  USER.name=name;
-  USER.score=USER.score||0;
-  USER.history=USER.history||[];
-  saveUser();
-  renderTopBadge();
-}
-
-function openProfile(){
-  const name=USER.name||'مهمان';
-  const score=USER.score||0;
-  const hist=(USER.history&&USER.history.length)?USER.history.map(h=>`${h.title} (+${h.points})`).join('\n'):'هیچکدوم';
-  alert(`پروفایل:\nاسم: ${name}\nامتیاز: ${score}\nکنش‌ها:\n${hist}`);
-}
-
-// دکمه شروع کن
-function renderTopBadge(){
-  const hb=document.getElementById('startBtn');
-  if(USER&&USER.name){hb.innerHTML=`<span class="icon">👋</span><span>سلام، ${USER.name.split(' ')[0]}!</span>`;}
-  else{hb.innerHTML=`<span class="icon">✈</span><span>شروع کن!</span>`;}
-}
-
-function init(){renderTopBadge();renderCards();USER=JSON.parse(localStorage.getItem('apadana_user'))||USER;}
-init();
-
-document.getElementById('startBtn').addEventListener('click',()=>{
-  if(USER&&USER.name){document.querySelector('.container').scrollIntoView({behavior:'smooth'});}
-  else{promptLogin();renderTopBadge();}
-});
-
-// Slider indicators
-const indicators=document.getElementById('indicators');
-const slidesEl=document.getElementById('slides');
-indicators.querySelectorAll('button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const i=parseInt(btn.dataset.i);
-    slidesEl.style.animation='none';
-    slidesEl.style.transform=`translateX(${-100*i}%)`;
-    indicators.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    setTimeout(()=>{
-      slidesEl.style.animation='slideAnim 12s linear infinite';
-      slidesEl.style.transform='';
-      indicators.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
-      indicators.querySelectorAll('button')[0].classList.add('active');
-    },5000);
-  });
-});
-
-// Footer SPA-like
-document.querySelectorAll('.footer .fbtn').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const a=b.dataset.action;
-    if(a==='home'){window.scrollTo({top:0,behavior:'smooth'});}
-    else if(a==='actions'){document.querySelector('.container').scrollIntoView({behavior:'smooth'});}
-    else if(a==='explore'){alert('صفحهٔ کاوش — بعداً اضافه می‌شود');}
-    else if(a==='profile'){openProfile();}
-  });
-});
-</script>
-
+  <!-- bottom navigation (fixed) -->
+  <nav class="bottom-nav">
+    <a href="#">🏠<span style="font-size:12px;margin-top:6px">خانه</span></a>
+    <a href="#">🎁<span style="font-size:12px;margin-top:6px">جوایز</span></a>
+    <a href="#">📝<span style="font-size:12px;margin-top:6px">کَنش‌های من</span></a>
+    <a href="#">⭐<span style="font-size:12px;margin-top:6px">رده‌بندی</span></a>
+    <a href="#">👤<span style="font-size:12px;margin-top:6px">حساب کاربری</span></a>
+  </nav>
 </body>
 </html>

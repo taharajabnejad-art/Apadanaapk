@@ -1,128 +1,196 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>بازسازی صفحه - ریسپانسیو</title>
+<style>
+:root{
+  --red:#ef4b57;
+  --red-dark:#e54550;
+  --pink:#ffdede;
+  --nav-height:92px;
+  --card-radius:20px;
+  --container-padding:16px;
+}
+html, body {margin:0; padding:0; height:100%; font-family:'Vazir','IRANYekan',system-ui; background:#fff; color:#111;}
+a{text-decoration:none; color:inherit;}
+/* هدر */
+.topbar{
+  padding:18px var(--container-padding);
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  background: url('IMAGES/bag.png') no-repeat center center;
+  background-size: cover;
+}
+.topbar .row{display:flex;align-items:center;justify-content:space-between}
+.tag{background:rgba(255,255,255,0.95);padding:8px 14px;border-radius:12px;font-weight:700;}
+.hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
-    .section-dark{
-      background:#052c49;
-      padding:24px var(--container-padding);
-      color:#fff;
-      border-radius:16px;
-      margin:18px var(--container-padding);
-    }
-    .section-dark h2{margin:0 0 12px 0;text-align:right}
-    .grid4{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px
-    }
-    .card{
-      background:rgba(255,255,255,0.04);
-      border-radius:14px;padding:18px;
-      text-align:center;min-height:110px;
-      display:flex;flex-direction:column;
-      align-items:center;justify-content:center
-    }
-    .card .icon{font-size:34px;margin-bottom:8px}
-    .card .title{font-weight:700}
+/* قهرمان */
+.hero{margin:18px var(--container-padding);}
+.hero .slide{
+  background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
+  color:#ffe84d;
+  border-radius:24px;
+  padding:28px;
+  min-height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+.hero .slide h1{font-size:26px;margin:0;}
+.hero .slide p{color:#ffd; opacity:.95; margin-top:6px; font-weight:700;}
+.dots{display:flex; gap:8px; justify-content:center; margin-top:10px;}
+.dots span{width:8px;height:8px;border-radius:50%;background:#ddd;}
+.dots span.active{background:#ff2f4a;}
 
-    .banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden}
-    .banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);padding:22px}
-    .banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);padding:22px}
-    .banner .text{font-weight:800;font-size:18px}
+/* بخش تیره */
+.section-dark{
+  background:#052c49;
+  padding:24px var(--container-padding);
+  color:#fff;
+  border-radius:16px;
+  margin:18px var(--container-padding);
+}
+.section-dark h2{margin:0 0 12px 0;text-align:right}
+.grid4{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.card{
+  background:rgba(255,255,255,0.04);
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+  min-height:110px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
+}
+.card .icon{font-size:34px;margin-bottom:8px}
+.card .title{font-weight:700}
 
-    .courses{padding:0 var(--container-padding)}
-    .course-card{
-      background:#0f3b57;color:#fff;border-radius:18px;
-      padding:12px;margin:14px 0;display:flex;
-      align-items:center;gap:12px;overflow:hidden
-    }
-    .course-card img{
-      width:120px;height:72px;border-radius:12px;object-fit:cover
-    }
-    .course-card .meta{flex:1}
-    .course-card .lvl{display:block;margin-top:8px;color:#fff;text-align:center}
+/* بنرها */
+.banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;}
+.banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);}
+.banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);}
+.banner .text{font-weight:800;font-size:18px;text-align:right;}
 
-    .fab{
-      position:fixed;right:20px;
-      bottom:calc(var(--nav-height) + 28px);
-      width:74px;height:74px;border-radius:50%;
-      background:var(--red);
-      box-shadow:0 8px 22px rgba(229,69,80,0.35);
-      display:flex;align-items:center;justify-content:center;
-      color:#fff;font-size:44px
-    }
+/* دوره‌ها */
+.courses{padding:0 var(--container-padding);}
+.course-card{
+  background:#0f3b57;color:#fff;border-radius:18px;
+  padding:12px;margin:14px 0;display:flex;
+  align-items:center;gap:12px;overflow:hidden
+}
+.course-card img{
+  width:120px;height:72px;border-radius:12px;object-fit:cover
+}
+.course-card .meta{flex:1;text-align:right;}
+.course-card .lvl{display:block;margin-top:8px;color:#fff;text-align:right;}
 
-    .appbar{
-      position:fixed;left:0;right:0;bottom:0;
-      height:var(--nav-height);
-      background:linear-gradient(180deg,#ff5963,#f34d57);
-      border-top-left-radius:26px;border-top-right-radius:26px;
-      display:flex;align-items:center;justify-content:space-around;
-      padding:12px 18px;box-shadow:0 -6px 18px rgba(0,0,0,0.08)
-    }
-    .appbar .item{color:#fff;text-align:center;font-size:13px}
-    .appbar svg{display:block;margin:0 auto 6px}
-  </style>
+/* دکمه شناور */
+.fab{
+  position:fixed;right:20px;
+  bottom:calc(var(--nav-height) + 28px);
+  width:74px;height:74px;border-radius:50%;
+  background:var(--red);
+  box-shadow:0 8px 22px rgba(229,69,80,0.35);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:44px
+}
+
+/* فوتر */
+.appbar{
+  position:fixed;left:0;right:0;bottom:0;
+  height:var(--nav-height);
+  border-top-left-radius:26px;border-top-right-radius:26px;
+  display:flex;align-items:center;justify-content:space-around;
+  padding:12px 18px;
+  box-shadow:0 -6px 18px rgba(0,0,0,0.08);
+  background: url('IMAGES/bag.png') no-repeat center center;
+  background-size: cover;
+}
+.appbar .item{color:#fff;text-align:center;font-size:13px;}
+.appbar svg{display:block;margin:0 auto 6px;}
+
+/* ریسپانسیو */
+@media (max-width:768px){
+  .grid4{grid-template-columns:1fr;}
+  .course-card{flex-direction:column;align-items:flex-start;}
+  .course-card img{width:100%; height:auto;}
+}
+</style>
 </head>
 <body>
-  <div class="page">
-    <header class="topbar">
-      <div class="row">
-        <div class="tag">امیدی شو!</div>
-        <div class="hamburger">≡</div>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="slide">
-          <div>
-            <h1>شبکه بازی</h1>
-            <p style="color:#ffd;opacity:.95;margin-top:6px;font-weight:700">
-              سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: 14:30 از شبکه امید سیما
-            </p>
-          </div>
-        </div>
-        <div class="dots"><span></span><span class="active"></span><span></span></div>
-      </section>
-
-      <div style="margin:18px var(--container-padding)">
-        <img src="images/banner-religious.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
-      </div>
-
-      <section class="section-dark">
-        <h2>دفتر تحریریه شبکه بازی!</h2>
-        <div class="grid4">
-          <div class="card"><div class="icon">🎮</div><div class="title">بازی بین</div></div>
-          <div class="card"><div class="icon">📚🎮</div><div class="title">بازی دان</div></div>
-          <div class="card"><div class="icon">📱</div><div class="title">گوشی بازی</div></div>
-          <div class="card"><div class="icon">⚽</div><div class="title">دست به توپ</div></div>
-        </div>
-      </section>
-
-      <div class="banner yellow">
-        <div class="text">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
-      </div>
-      <div class="banner red">
-        <div class="text">جدول امتیازها — بریم ببینیم کی بالاست!</div>
-      </div>
-      
-<div class="banner red" style="text-align:right;">
-  <div class="text" style="text-align:right;">جدول امتیازها — بریم ببینیم کی بالاست!</div>
-<section class="courses">
-  <div class="course-card" style="display:flex;align-items:center;gap:12px;">
-    <img src="images/course-1.jpg" style="width:120px;height:72px;border-radius:12px;object-fit:cover;">
-    <div class="meta" style="flex:1;text-align:right;">
-      <strong>دوره‌های آموزشی</strong>
-      <span class="lvl">سطح سوم عکاسی</span>
+<div class="page">
+  <header class="topbar">
+    <div class="row">
+      <div class="tag"><a href="profile.html">امیدی شو!</a></div>
+      <div class="hamburger">≡</div>
     </div>
-  </div>
+  </header>
 
-  <div class="course-card" style="display:flex;align-items:center;gap:12px;">
-    <img src="images/course-2.jpg" style="width:120px;height:72px;border-radius:12px;object-fit:cover;">
-    <div class="meta" style="flex:1;text-align:right;">
-      <strong>ایده‌آغاز</strong>
-      <span class="lvl">سطح اول فیلمسازی داستانی</span>
+  <main>
+    <section class="hero">
+      <div class="slide">
+        <h1>شبکه بازی</h1>
+        <p>سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: 14:30 از شبکه امید سیما</p>
+      </div>
+      <div class="dots"><span></span><span class="active"></span><span></span></div>
+    </section>
+
+    <div style="margin:18px var(--container-padding)">
+      <img src="IMAGES/banner-religious.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
     </div>
-  </div>
-</section>
+
+    <section class="section-dark">
+      <h2>دفتر تحریریه شبکه بازی!</h2>
+      <div class="grid4">
+        <div class="card"><div class="icon">🎮</div><div class="title">بازی بین</div></div>
+        <div class="card"><div class="icon">📚🎮</div><div class="title">بازی دان</div></div>
+        <div class="card"><div class="icon">📱</div><div class="title">گوشی بازی</div></div>
+        <div class="card"><div class="icon">⚽</div><div class="title">دست به توپ</div></div>
+      </div>
+    </section>
+
+    <div class="banner yellow">
+      <div class="text">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
+    </div>
+    <div class="banner red">
+      <div class="text">جدول امتیازها — بریم ببینیم کی بالاست!</div>
+    </div>
+
+    <section class="courses">
+      <div class="course-card">
+        <img src="IMAGES/course-1.jpg">
+        <div class="meta">
+          <strong>دوره‌های آموزشی</strong>
+          <span class="lvl">سطح سوم عکاسی</span>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="IMAGES/course-2.jpg">
+        <div class="meta">
+          <strong>ایده‌آغاز</strong>
+          <span class="lvl">سطح اول فیلمسازی داستانی</span>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="IMAGES/course-2.jpg">
+        <div class="meta">
+          <strong>ایده‌آغاز</strong>
+          <span class="lvl">سطح اول فیلمسازی داستانی</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <div class="fab">،</div>
 
@@ -134,5 +202,6 @@
     <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>حساب کاربری</div>
   </nav>
 
+</div>
 </body>
 </html>

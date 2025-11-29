@@ -4,8 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>بازسازی صفحه - ریسپانسیو</title>
-  <!-- لینک به CSS محلی -->
+
+<!-- لینک به CSS محلی -->
 <link rel="stylesheet" href="CSS/app.css">
+
 <style>
 :root{
   --red:#ef4b57;
@@ -17,7 +19,7 @@
 }
 html, body {
   margin:0; padding:0; height:100%;
-  font-family:'Vazir','IRANYekan',system-ui; /* فونت دلخواه */
+  font-family:'Vazir','IRANYekan',system-ui;
   background:#fff; color:#111;
 }
 a{text-decoration:none; color:inherit;}
@@ -30,20 +32,16 @@ a{text-decoration:none; color:inherit;}
   box-shadow:0 6px 18px rgba(0,0,0,0.06);
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
-
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
 }
-.page { padding-top: 92px; } /* ارتفاع هدر برای فضای اسکرول */
+.page { padding-top: 92px; }
 
 .topbar .row{display:flex;align-items:center;justify-content:space-between}
 .tag{background:rgba(255,255,255,0.95);padding:8px 14px;border-radius:12px;font-weight:700;}
 .hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
-/* بقیه CSS بدون تغییر */
 .hero{margin:18px var(--container-padding);}
 .hero .slide{
   background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
@@ -63,12 +61,26 @@ a{text-decoration:none; color:inherit;}
 .dots span{width:8px;height:8px;border-radius:50%;background:#ddd;}
 .dots span.active{background:#ff2f4a;}
 
-.section-dark{background:#052c49;padding:24px var(--container-padding);color:#fff;border-radius:16px;margin:18px var(--container-padding);}
+.section-dark{
+  background:#052c49;
+  padding:24px var(--container-padding);
+  color:#fff;
+  border-radius:16px;
+  margin:18px var(--container-padding);
+}
 .section-dark h2{margin:0 0 12px 0;text-align:right}
 .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-.card{background:rgba(255,255,255,0.04);border-radius:14px;padding:18px;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.card .icon{font-size:34px;margin-bottom:8px}
-.card .title{font-weight:700}
+.card{
+  background:rgba(255,255,255,0.04);
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+  min-height:110px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
+}
 
 .banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;}
 .banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);}
@@ -76,12 +88,37 @@ a{text-decoration:none; color:inherit;}
 .banner .text{font-weight:800;font-size:18px;text-align:right;}
 
 .courses{padding:0 var(--container-padding);}
-.course-card{background:#0f3b57;color:#fff;border-radius:18px;padding:12px;margin:14px 0;display:flex;align-items:center;gap:12px;overflow:hidden}
-.course-card img{width:120px;height:72px;border-radius:12px;object-fit:cover}
+.course-card{
+  background:#0f3b57;
+  color:#fff;
+  border-radius:18px;
+  padding:12px;
+  margin:14px 0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  overflow:hidden
+}
+.course-card img{
+  width:120px;height:72px;border-radius:12px;object-fit:cover
+}
 .course-card .meta{flex:1;text-align:right;}
 .course-card .lvl{display:block;margin-top:8px;color:#fff;text-align:right;}
 
-.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
+.fab{
+  position:fixed;
+  right:20px;
+  bottom:calc(var(--nav-height) + 28px);
+  width:74px;height:74px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 8px 22px rgba(229,69,80,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:44px
+}
 
 .appbar{
   position:fixed;left:0;right:0;bottom:0;
@@ -103,8 +140,11 @@ a{text-decoration:none; color:inherit;}
 }
 </style>
 </head>
+
 <body>
 <div class="page">
+
+  <!-- هدر -->
   <header class="topbar">
     <div class="row">
       <div class="tag"><a href="profile.html">شروع کن!</a></div>
@@ -112,7 +152,9 @@ a{text-decoration:none; color:inherit;}
     </div>
   </header>
 
+  <!-- محتوای اصلی -->
   <main>
+
     <section class="hero">
       <div class="slide">
         <h1>شبکه بازی</h1>
@@ -138,43 +180,69 @@ a{text-decoration:none; color:inherit;}
     <div class="banner yellow">
       <div class="text">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
     </div>
+
     <div class="banner red">
       <div class="text">جدول امتیازها — بریم ببینیم کی بالاست!</div>
     </div>
 
+    <!-- رده‌بندی ۳ نفر برتر -->
     <section class="courses">
+      <h2 style="margin:10px 0;font-size:20px;text-align:right;font-weight:800;color:#052c49;">
+        رده‌بندی — ۳ نفر برتر امروز
+      </h2>
+
       <div class="course-card">
-        <img src="IMAGES/course-1.jpg">
+        <img src="IMAGES/top1.jpg">
         <div class="meta">
-          <strong>دوره‌های آموزشی</strong>
-          <span class="lvl">سطح سوم عکاسی</span>
+          <strong>۱. علی رضایی</strong>
+          <span class="lvl">۲۳۵ امتیاز</span>
         </div>
       </div>
+
       <div class="course-card">
-        <img src="IMAGES/course-2.jpg">
+        <img src="IMAGES/top2.jpg">
         <div class="meta">
-          <strong>ایده‌آغاز</strong>
-          <span class="lvl">سطح اول فیلمسازی داستانی</span>
+          <strong>۲. پارسا امینی</strong>
+          <span class="lvl">۱۹۸ امتیاز</span>
         </div>
       </div>
+
       <div class="course-card">
-        <img src="IMAGES/course-2.jpg">
+        <img src="IMAGES/top3.jpg">
         <div class="meta">
-          <strong>ایده‌آغاز</strong>
-          <span class="lvl">سطح اول فیلمسازی داستانی</span>
+          <strong>۳. محمد قاسمی</strong>
+          <span class="lvl">۱۸۰ امتیاز</span>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- دکمه شناور -->
   <div class="fab">،</div>
 
+  <!-- اپ‌بار -->
   <nav class="appbar">
-    <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>خانه</div>
-    <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>جایزه‌ها</div>
-    <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>کنش‌های من</div>
-    <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>رده‌بندی</div>
-    <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>حساب کاربری</div>
+    <a class="item" href="index.html">
+      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
+      خانه
+    </a>
+    <a class="item" href="awards.html">
+      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
+      جایزه‌ها
+    </a>
+    <a class="item" href="actions.html">
+      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
+      کنش‌های من
+    </a>
+    <a class="item" href="rank.html">
+      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
+      رده‌بندی
+    </a>
+    <a class="item" href="profile.html">
+      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
+      حساب کاربری
+    </a>
   </nav>
 
 </div>

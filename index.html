@@ -4,8 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>بازسازی صفحه - ریسپانسیو</title>
-  <!-- لینک به CSS محلی -->
-<link rel="stylesheet" href="CSS/app.css">
 <style>
 :root{
   --red:#ef4b57;
@@ -15,9 +13,14 @@
   --card-radius:20px;
   --container-padding:16px;
 }
-html, body {margin:0; padding:0; height:100%; font-family:'Vazir','IRANYekan',system-ui; background:#fff; color:#111;}
+html, body {
+  margin:0; padding:0; height:100%;
+  font-family:'Vazir','IRANYekan',system-ui; /* فونت دلخواه */
+  background:#fff; color:#111;
+}
 a{text-decoration:none; color:inherit;}
-/* هدر */
+
+/* هدر ثابت */
 .topbar{
   padding:18px var(--container-padding);
   border-bottom-left-radius:28px;
@@ -25,12 +28,20 @@ a{text-decoration:none; color:inherit;}
   box-shadow:0 6px 18px rgba(0,0,0,0.06);
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
+.page { padding-top: 92px; } /* ارتفاع هدر برای فضای اسکرول */
+
 .topbar .row{display:flex;align-items:center;justify-content:space-between}
 .tag{background:rgba(255,255,255,0.95);padding:8px 14px;border-radius:12px;font-weight:700;}
 .hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
-/* قهرمان */
+/* بقیه CSS بدون تغییر */
 .hero{margin:18px var(--container-padding);}
 .hero .slide{
   background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
@@ -50,65 +61,26 @@ a{text-decoration:none; color:inherit;}
 .dots span{width:8px;height:8px;border-radius:50%;background:#ddd;}
 .dots span.active{background:#ff2f4a;}
 
-/* بخش تیره */
-.section-dark{
-  background:#052c49;
-  padding:24px var(--container-padding);
-  color:#fff;
-  border-radius:16px;
-  margin:18px var(--container-padding);
-}
+.section-dark{background:#052c49;padding:24px var(--container-padding);color:#fff;border-radius:16px;margin:18px var(--container-padding);}
 .section-dark h2{margin:0 0 12px 0;text-align:right}
-.grid4{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-.card{
-  background:rgba(255,255,255,0.04);
-  border-radius:14px;
-  padding:18px;
-  text-align:center;
-  min-height:110px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center
-}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.card{background:rgba(255,255,255,0.04);border-radius:14px;padding:18px;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .card .icon{font-size:34px;margin-bottom:8px}
 .card .title{font-weight:700}
 
-/* بنرها */
 .banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;}
 .banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);}
 .banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);}
 .banner .text{font-weight:800;font-size:18px;text-align:right;}
 
-/* دوره‌ها */
 .courses{padding:0 var(--container-padding);}
-.course-card{
-  background:#0f3b57;color:#fff;border-radius:18px;
-  padding:12px;margin:14px 0;display:flex;
-  align-items:center;gap:12px;overflow:hidden
-}
-.course-card img{
-  width:120px;height:72px;border-radius:12px;object-fit:cover
-}
+.course-card{background:#0f3b57;color:#fff;border-radius:18px;padding:12px;margin:14px 0;display:flex;align-items:center;gap:12px;overflow:hidden}
+.course-card img{width:120px;height:72px;border-radius:12px;object-fit:cover}
 .course-card .meta{flex:1;text-align:right;}
 .course-card .lvl{display:block;margin-top:8px;color:#fff;text-align:right;}
 
-/* دکمه شناور */
-.fab{
-  position:fixed;right:20px;
-  bottom:calc(var(--nav-height) + 28px);
-  width:74px;height:74px;border-radius:50%;
-  background:var(--red);
-  box-shadow:0 8px 22px rgba(229,69,80,0.35);
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:44px
-}
+.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
 
-/* فوتر */
 .appbar{
   position:fixed;left:0;right:0;bottom:0;
   height:var(--nav-height);
@@ -122,7 +94,6 @@ a{text-decoration:none; color:inherit;}
 .appbar .item{color:#fff;text-align:center;font-size:13px;}
 .appbar svg{display:block;margin:0 auto 6px;}
 
-/* ریسپانسیو */
 @media (max-width:768px){
   .grid4{grid-template-columns:1fr;}
   .course-card{flex-direction:column;align-items:flex-start;}

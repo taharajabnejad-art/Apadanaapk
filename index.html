@@ -3,11 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>بازسازی صفحه - ریسپانسیو</title>
-
-<!-- لینک به CSS محلی -->
+<title>صفحه اصلی - شبکه بازی</title>
 <link rel="stylesheet" href="CSS/app.css">
-
 <style>
 :root{
   --red:#ef4b57;
@@ -33,19 +30,21 @@ a{text-decoration:none; color:inherit;}
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
 }
 .page { padding-top: 92px; }
-
 .topbar .row{display:flex;align-items:center;justify-content:space-between}
 .tag{background:rgba(255,255,255,0.95);padding:8px 14px;border-radius:12px;font-weight:700;}
 .hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
+/* هرو */
 .hero{margin:18px var(--container-padding);}
 .hero .slide{
   background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
-  color:#ffe84d;
+  color:#fff; /* شبکه بازی سفید شد */
   border-radius:24px;
   padding:28px;
   min-height:140px;
@@ -61,64 +60,28 @@ a{text-decoration:none; color:inherit;}
 .dots span{width:8px;height:8px;border-radius:50%;background:#ddd;}
 .dots span.active{background:#ff2f4a;}
 
-.section-dark{
-  background:#052c49;
-  padding:24px var(--container-padding);
-  color:#fff;
-  border-radius:16px;
-  margin:18px var(--container-padding);
-}
+/* بخش تیره */
+.section-dark{background:#052c49;padding:24px var(--container-padding);color:#fff;border-radius:16px;margin:18px var(--container-padding);}
 .section-dark h2{margin:0 0 12px 0;text-align:right}
 .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-.card{
-  background:rgba(255,255,255,0.04);
-  border-radius:14px;
-  padding:18px;
-  text-align:center;
-  min-height:110px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center
-}
+.card{background:rgba(255,255,255,0.04);border-radius:14px;padding:18px;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.card .icon{font-size:34px;margin-bottom:8px}
+.card .title{font-weight:700}
 
+/* بنرها */
 .banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;}
-.banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);}
-.banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);}
-.banner .text{font-weight:800;font-size:18px;text-align:right;}
+.banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);color:#000;}
+.banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);color:#fff;} /* متن سفید شد */
 
-.courses{padding:0 var(--container-padding);}
-.course-card{
-  background:#0f3b57;
-  color:#fff;
-  border-radius:18px;
-  padding:12px;
-  margin:14px 0;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  overflow:hidden
-}
-.course-card img{
-  width:120px;height:72px;border-radius:12px;object-fit:cover
-}
-.course-card .meta{flex:1;text-align:right;}
-.course-card .lvl{display:block;margin-top:8px;color:#fff;text-align:right;}
+/* رده بندی سه نفر برتر */
+.ranking{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;background:#3b82f6;color:#fff;}
+.ranking h3{text-align:right;margin:0 0 12px 0;font-weight:700;}
+.ranking .rank-card{background:rgba(255,255,255,0.1);border-radius:14px;padding:14px;margin:10px 0;display:flex;align-items:center;justify-content:space-between;}
+.ranking .rank-card .player{font-weight:700;}
+.ranking .rank-card .score{font-weight:700;}
 
-.fab{
-  position:fixed;
-  right:20px;
-  bottom:calc(var(--nav-height) + 28px);
-  width:74px;height:74px;
-  border-radius:50%;
-  background:var(--red);
-  box-shadow:0 8px 22px rgba(229,69,80,0.35);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  font-size:44px
-}
+/* فوتر */
+.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
 
 .appbar{
   position:fixed;left:0;right:0;bottom:0;
@@ -131,8 +94,7 @@ a{text-decoration:none; color:inherit;}
   background-size: cover;
 }
 .appbar .item{color:#fff;text-align:center;font-size:13px;}
-.appbar svg{display:block;margin:0 auto 6px;}
-
+.appbar .item img{display:block;margin:0 auto 6px; width:22px; height:22px;}
 @media (max-width:768px){
   .grid4{grid-template-columns:1fr;}
   .course-card{flex-direction:column;align-items:flex-start;}
@@ -140,11 +102,8 @@ a{text-decoration:none; color:inherit;}
 }
 </style>
 </head>
-
 <body>
 <div class="page">
-
-  <!-- هدر -->
   <header class="topbar">
     <div class="row">
       <div class="tag"><a href="profile.html">شروع کن!</a></div>
@@ -152,9 +111,7 @@ a{text-decoration:none; color:inherit;}
     </div>
   </header>
 
-  <!-- محتوای اصلی -->
   <main>
-
     <section class="hero">
       <div class="slide">
         <h1>شبکه بازی</h1>
@@ -167,84 +124,39 @@ a{text-decoration:none; color:inherit;}
       <img src="IMAGES/banner-religious.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
     </div>
 
-    <section class="section-dark">
-      <h2>دفتر تحریریه شبکه بازی!</h2>
-      <div class="grid4">
-        <div class="card"><div class="icon">🎮</div><div class="title">بازی بین</div></div>
-        <div class="card"><div class="icon">📚🎮</div><div class="title">بازی دان</div></div>
-        <div class="card"><div class="icon">📱</div><div class="title">گوشی بازی</div></div>
-        <div class="card"><div class="icon">⚽</div><div class="title">دست به توپ</div></div>
+    <section class="ranking">
+      <h3>رده‌بندی سه نفر برتر</h3>
+      <div class="rank-card">
+        <div class="player">علی</div>
+        <div class="score">1200</div>
+      </div>
+      <div class="rank-card">
+        <div class="player">زهرا</div>
+        <div class="score">1150</div>
+      </div>
+      <div class="rank-card">
+        <div class="player">امیر</div>
+        <div class="score">1100</div>
       </div>
     </section>
 
     <div class="banner yellow">
       <div class="text">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
     </div>
-
     <div class="banner red">
       <div class="text">جدول امتیازها — بریم ببینیم کی بالاست!</div>
     </div>
-
-    <!-- رده‌بندی ۳ نفر برتر -->
-    <section class="courses">
-      <h2 style="margin:10px 0;font-size:20px;text-align:right;font-weight:800;color:#052c49;">
-        رده‌بندی — ۳ نفر برتر امروز
-      </h2>
-
-      <div class="course-card">
-        <img src="IMAGES/top1.jpg">
-        <div class="meta">
-          <strong>۱. علی رضایی</strong>
-          <span class="lvl">۲۳۵ امتیاز</span>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="IMAGES/top2.jpg">
-        <div class="meta">
-          <strong>۲. پارسا امینی</strong>
-          <span class="lvl">۱۹۸ امتیاز</span>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="IMAGES/top3.jpg">
-        <div class="meta">
-          <strong>۳. محمد قاسمی</strong>
-          <span class="lvl">۱۸۰ امتیاز</span>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- دکمه شناور -->
   <div class="fab">،</div>
 
-  <!-- اپ‌بار -->
   <nav class="appbar">
-    <a class="item" href="index.html">
-      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
-      خانه
-    </a>
-    <a class="item" href="awards.html">
-      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
-      جایزه‌ها
-    </a>
-    <a class="item" href="actions.html">
-      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
-      کنش‌های من
-    </a>
-    <a class="item" href="rank.html">
-      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
-      رده‌بندی
-    </a>
-    <a class="item" href="profile.html">
-      <svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>
-      حساب کاربری
-    </a>
+    <div class="item"><img src="IMAGES/home.png">خانه</div>
+    <div class="item"><img src="IMAGES/prize.png">جایزه‌ها</div>
+    <div class="item"><img src="IMAGES/action.png">کنش‌های من</div>
+    <div class="item"><img src="IMAGES/ranking.png">رده‌بندی</div>
+    <div class="item"><img src="IMAGES/profile.png">حساب کاربری</div>
   </nav>
-
 </div>
 </body>
 </html>

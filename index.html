@@ -6,7 +6,6 @@
   <title>بازسازی صفحه - نمونه HTML</title>
   <link rel="stylesheet" href="CSS/app.css">
   <style>
-    /* فونت پیش‌فرض - در صورت نیاز فونت وازیر یا ایران یکان را اضافه کنید */
     :root{
       --red:#ef4b57;
       --red-dark:#e54550;
@@ -18,20 +17,18 @@
     html,body{height:100%;}
     body{
       margin:0;
-      font-family: 'Vazir', 'IRANYekan', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-family: 'Vazir','IRANYekan',system-ui;
       background:#fff;
       -webkit-font-smoothing:antialiased;
       color:#111;
     }
 
-
-    /* هدر بالای صفحه با بک‌گراند قرمز طرح‌دار */
     .topbar{
       background:linear-gradient(180deg, var(--red) 0%, #e95760 100%);
       padding:18px var(--container-padding);
       border-bottom-left-radius:28px;
       border-bottom-right-radius:28px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
     }
     .topbar .row{display:flex;align-items:center;justify-content:space-between}
     .tag{
@@ -45,24 +42,27 @@
       width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700
     }
 
-    /* اسلایدر اصلی */
+    /* 🔥 پس‌زمینه ترکیب‌شده جدید */
     .hero{
       margin:18px var(--container-padding);
     }
     .hero .slide{
-      background:#07153a url('images/hero-bg.png') center/cover no-repeat;
+      background:
+        linear-gradient(90deg,#fbe68a,#ffd76a),
+        url('images/hero-bg.png') center/cover no-repeat;
+      /* اول گرادیان، بعد عکس */
       color:#ffe84d;
       border-radius:24px;
       padding:28px;
       min-height:140px;
-      display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden
+      display:flex;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;
     }
-    .hero .slide h1{font-size:26px;margin:0;padding:0}
+    .hero .slide h1{font-size:26px;margin:0}
     .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
-    .dots span{width:8px;height:8px;border-radius:50%;background:#ddd;display:inline-block}
+    .dots span{width:8px;height:8px;border-radius:50%;background:#ddd}
     .dots span.active{background:#ff2f4a}
 
-    /* بخش آبی با کارت‌های چهارگانه */
     .section-dark{
       background:#052c49;
       padding:24px var(--container-padding);
@@ -71,45 +71,58 @@
       margin:18px var(--container-padding);
     }
     .section-dark h2{margin:0 0 12px 0;text-align:right}
-    .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .grid4{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px
+    }
     .card{
       background:rgba(255,255,255,0.04);
-      border-radius:14px;padding:18px;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center
+      border-radius:14px;padding:18px;
+      text-align:center;min-height:110px;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center
     }
     .card .icon{font-size:34px;margin-bottom:8px}
     .card .title{font-weight:700}
 
-    /* بنرهای افقی رنگی */
     .banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden}
     .banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);padding:22px}
     .banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);padding:22px}
     .banner .text{font-weight:800;font-size:18px}
 
-    /* لیست دوره‌ها - کارت‌های افقی */
     .courses{padding:0 var(--container-padding)}
-    .course-card{background:#0f3b57;color:#fff;border-radius:18px;padding:12px;margin:14px 0;display:flex;align-items:center;gap:12px;overflow:hidden}
-    .course-card img{width:120px;height:72px;border-radius:12px;object-fit:cover}
+    .course-card{
+      background:#0f3b57;color:#fff;border-radius:18px;
+      padding:12px;margin:14px 0;display:flex;
+      align-items:center;gap:12px;overflow:hidden
+    }
+    .course-card img{
+      width:120px;height:72px;border-radius:12px;object-fit:cover
+    }
     .course-card .meta{flex:1}
-    .course-card .meta .lvl{display:block;margin-top:8px;color:#fff;text-align:center}
+    .course-card .lvl{display:block;margin-top:8px;color:#fff;text-align:center}
 
-    /* bottom floating action button */
-    .fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
-    /* nav پایینی شبیه موبایل */
+    .fab{
+      position:fixed;right:20px;
+      bottom:calc(var(--nav-height) + 28px);
+      width:74px;height:74px;border-radius:50%;
+      background:var(--red);
+      box-shadow:0 8px 22px rgba(229,69,80,0.35);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:44px
+    }
+
     .appbar{
-      position:fixed;left:0;right:0;bottom:0;height:var(--nav-height);background:linear-gradient(180deg,#ff5963,#f34d57);border-top-left-radius:26px;border-top-right-radius:26px;display:flex;align-items:center;justify-content:space-around;padding:12px 18px;box-shadow:0 -6px 18px rgba(0,0,0,0.08)
+      position:fixed;left:0;right:0;bottom:0;
+      height:var(--nav-height);
+      background:linear-gradient(180deg,#ff5963,#f34d57);
+      border-top-left-radius:26px;border-top-right-radius:26px;
+      display:flex;align-items:center;justify-content:space-around;
+      padding:12px 18px;box-shadow:0 -6px 18px rgba(0,0,0,0.08)
     }
     .appbar .item{color:#fff;text-align:center;font-size:13px}
-    .appbar .item svg{display:block;margin:0 auto 6px}
-
-    /* responsive tweaks */
-    @media (max-width:420px){
-      .page{padding:0}
-    }
-
-    /* small decorative star dots */
-    .decor{
-      display:inline-block;margin:0 8px;color:#ffdd57;font-size:20px;font-weight:900
-    }
+    .appbar svg{display:block;margin:0 auto 6px}
   </style>
 </head>
 <body>
@@ -122,25 +135,22 @@
     </header>
 
     <main>
-      <!-- هرو اسلایدر -->
       <section class="hero">
         <div class="slide">
           <div>
             <h1>شبکه بازی</h1>
-            <p style="color:#ffd;opacity:.95;margin-top:6px;font-weight:700">سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: 14:30 از شبکه امید سیما</p>
+            <p style="color:#ffd;opacity:.95;margin-top:6px;font-weight:700">
+              سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: 14:30 از شبکه امید سیما
+            </p>
           </div>
         </div>
-        <div class="dots" aria-hidden>
-          <span></span><span class="active"></span><span></span>
-        </div>
+        <div class="dots"><span></span><span class="active"></span><span></span></div>
       </section>
 
-      <!-- تصویر طولی مذهبی -->
       <div style="margin:18px var(--container-padding)">
-        <img src="images/banner-religious.png" alt="banner" style="width:100%;border-radius:12px;display:block;object-fit:cover;height:120px">
+        <img src="images/banner-religious.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
       </div>
 
-      <!-- بخش آبی کارت‌ها -->
       <section class="section-dark">
         <h2>دفتر تحریریه شبکه بازی!</h2>
         <div class="grid4">
@@ -151,17 +161,16 @@
         </div>
       </section>
 
-      <!-- بنرهای رنگی افقی -->
       <div class="banner yellow">
         <div class="text">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
       </div>
       <div class="banner red">
         <div class="text">جدول امتیازها — بریم ببینیم کی بالاست!</div>
+      </div>
 
-      <!-- دوره‌های آموزشی -->
       <section class="courses">
         <div class="course-card">
-          <img src="images/course-1.jpg" alt="course">
+          <img src="images/course-1.jpg">
           <div class="meta">
             <strong>دوره‌های آموزشی</strong>
             <span class="lvl">سطح سوم عکاسی</span>
@@ -169,46 +178,27 @@
         </div>
 
         <div class="course-card">
-          <img src="images/course-2.jpg" alt="course">
+          <img src="images/course-2.jpg">
           <div class="meta">
             <strong>ایده‌آغاز</strong>
             <span class="lvl">سطح اول فیلمسازی داستانی</span>
           </div>
         </div>
-        
+
         <div class="course-card">
-          <img src="images/course-2.jpg" alt="course">
+          <img src="images/course-2.jpg">
           <div class="meta">
             <strong>ایده‌آغاز</strong>
             <span class="lvl">سطح اول فیلمسازی داستانی</span>
           </div>
         </div>
-
       </section>
-
     </main>
   </div>
-    <!-- دوره‌های آموزشی -->
-<section class="hero">
-  <div class="slide">
-    <div>
-      <h1>شبکه بازی</h1>
-      <p style="color:#ffd;opacity:.95;margin-top:6px;font-weight:700">
-        سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: 14:30 از شبکه امید سیما
-      </p>
-    </div>
-  </div>
 
-  <div class="dots" aria-hidden>
-    <span></span><span class="active"></span><span></span>
-  </div>
-</section>
-  
-  <!-- دکمه شناور -->
   <div class="fab">،</div>
 
-  <!-- پایین‌بار موبایل -->
-  <nav class="appbar" role="navigation">
+  <nav class="appbar">
     <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>خانه</div>
     <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>جایزه‌ها</div>
     <div class="item"><svg width="22" height="22"><rect width="22" height="22" rx="4" fill="rgba(255,255,255,0.18)"/></svg>کنش‌های من</div>

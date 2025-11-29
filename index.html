@@ -41,10 +41,9 @@ a{text-decoration:none; color:inherit;}
 .hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
 /* هرو */
-.hero{margin:18px var(--container-padding);}
 .hero .slide{
   background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
-  color:#000; /* شبکه بازی سفید شد */
+  color:#000; /* عنوان شبکه بازی سفید */
   border-radius:24px;
   padding:28px;
   min-height:140px;
@@ -54,12 +53,17 @@ a{text-decoration:none; color:inherit;}
   flex-direction:column;
   text-align:center;
 }
-.hero .slide h1{font-size:26px;margin:0;}
-.hero .slide p{color:#ffd; opacity:.95; margin-top:6px; font-weight:700;}
-.dots{display:flex; gap:8px; justify-content:center; margin-top:10px;}
-.dots span{width:8px;height:8px;border-radius:50%;background:#ddd;}
-.dots span.active{background:#ff2f4a;}
-
+.hero .slide h1{
+  font-size:26px;
+  margin:0;
+  color:#000; /* عنوان شبکه بازی سفید */
+}
+.hero .slide p{
+  color:#000; /* متن زیر شبکه بازی سفید */
+  opacity:.95;
+  margin-top:6px;
+  font-weight:700;
+}
 /* بخش تیره */
 .section-dark{background:#052c49;padding:24px var(--container-padding);color:#fff;border-radius:16px;margin:18px var(--container-padding);}
 .section-dark h2{margin:0 0 12px 0;text-align:right}

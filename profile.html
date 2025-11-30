@@ -40,30 +40,22 @@ a{text-decoration:none; color:inherit;}
 .tag{background:rgba(255,255,255,0.95);padding:8px 14px;border-radius:12px;font-weight:700;}
 .hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
-/* هرو */
-.hero .slide{
-  background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
-  color:#000; /* عنوان شبکه بازی سفید */
-  border-radius:24px;
-  padding:28px;
-  min-height:140px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-}
-.hero .slide h1{
-  font-size:26px;
-  margin:0;
-  color:#000; /* عنوان شبکه بازی سفید */
-}
-.hero .slide p{
-  color:#000; /* متن زیر شبکه بازی سفید */
-  opacity:.95;
-  margin-top:6px;
-  font-weight:700;
-}
+<!-- هرو -->
+<section class="hero">
+  <div class="slide" style="
+    background: linear-gradient(90deg,#ff5a6a,#e83040);
+    color:#fff;
+  ">
+    <h1 style="color:#fff;">۴۰۴</h1>
+    <p style="color:#fff;">اوه! به نظر میاد این صفحه گم شده… برگرد خونه :)</p>
+  </div>
+
+  <div class="dots">
+    <span></span>
+    <span class="active"></span>
+    <span></span>
+  </div>
+</section>
 /* فوتر */
 .fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
 

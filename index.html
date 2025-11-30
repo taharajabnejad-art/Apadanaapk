@@ -8,11 +8,9 @@
 <style>
 :root{
   --red:#ef4b57;
-  --red-dark:#e54550;
-  --pink:#ffdede;
   --nav-height:92px;
-  --card-radius:20px;
   --container-padding:16px;
+  --card-radius:20px;
 }
 html, body {
   margin:0; padding:0; height:100%;
@@ -30,9 +28,7 @@ a{text-decoration:none; color:inherit;}
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
 }
 .page { padding-top: 92px; }
@@ -43,7 +39,7 @@ a{text-decoration:none; color:inherit;}
 /* هرو */
 .hero .slide{
   background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
-  color:#000; /* عنوان شبکه بازی سفید */
+  color:#000;
   border-radius:24px;
   padding:28px;
   min-height:140px;
@@ -53,57 +49,44 @@ a{text-decoration:none; color:inherit;}
   flex-direction:column;
   text-align:center;
 }
-.hero .slide h1{
-  font-size:26px;
-  margin:0;
-  color:#000; /* عنوان شبکه بازی سفید */
-}
-.hero .slide p{
-  color:#000; /* متن زیر شبکه بازی سفید */
-  opacity:.95;
-  margin-top:6px;
-  font-weight:700;
-}
-/* بخش تیره */
-.section-dark{background:#052c49;padding:24px var(--container-padding);color:#fff;border-radius:16px;margin:18px var(--container-padding);}
-.section-dark h2{margin:0 0 12px 0;text-align:right}
-.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-.card{background:rgba(255,255,255,0.04);border-radius:14px;padding:18px;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.card .icon{font-size:34px;margin-bottom:8px}
-.card .title{font-weight:700}
+.hero .slide h1{font-size:26px;margin:0;}
+.hero .slide p{color:#000;opacity:.95;margin-top:6px;font-weight:700;}
 
 /* بنرها */
 .banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;}
 .banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);color:#000;}
-.banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);color:#fff;} /* متن سفید شد */
+.banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);color:#fff;}
+.banner.green{background:linear-gradient(90deg,#6fcf97,#27ae60);color:#fff;}
 
-/* رده بندی سه نفر برتر */
+/* جدول امتیاز */
 .ranking{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;background:#3b82f6;color:#fff;}
 .ranking h3{text-align:right;margin:0 0 12px 0;font-weight:700;}
 .ranking .rank-card{background:rgba(255,255,255,0.1);border-radius:14px;padding:14px;margin:10px 0;display:flex;align-items:center;justify-content:space-between;}
 .ranking .rank-card .player{font-weight:700;}
 .ranking .rank-card .score{font-weight:700;}
 
-/* فوتر */
-.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
+/* ویدیوها */
+.video-section{display:flex;flex-direction:column;gap:16px;margin:18px var(--container-padding);}
+.video-section video{width:100%;border-radius:12px;}
 
+/* کنش‌ها */
+.actions-section{margin:18px var(--container-padding);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;}
+.action-card{flex:1 1 45%;border-radius:12px;padding:16px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;min-height:150px;position:relative;background-size:cover;background-position:center;}
+.action-card a{background:rgba(0,0,0,0.5);padding:6px 12px;border-radius:8px;color:#fff;text-align:center;font-weight:700;text-decoration:none;margin-top:6px;display:inline-block;}
+
+/* فوتر بزرگ شبیه ۴۰۴ */
 .appbar{
-  position:fixed;left:0;right:0;bottom:0;
-  height:var(--nav-height);
+  position:fixed;left:0;right:0;bottom:0;height:var(--nav-height);
   border-top-left-radius:26px;border-top-right-radius:26px;
   display:flex;align-items:center;justify-content:space-around;
-  padding:12px 18px;
+  padding:16px 12px;
   box-shadow:0 -6px 18px rgba(0,0,0,0.08);
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
 }
-.appbar .item{color:#fff;text-align:center;font-size:13px;}
-.appbar .item img{display:block;margin:0 auto 6px; width:22px; height:22px;}
-@media (max-width:768px){
-  .grid4{grid-template-columns:1fr;}
-  .course-card{flex-direction:column;align-items:flex-start;}
-  .course-card img{width:100%; height:auto;}
-}
+.appbar .item{color:#fff;text-align:center;font-size:14px;}
+.appbar .item img{display:block;margin:0 auto 6px;width:28px;height:28px;object-fit:contain;}
+.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px;}
 </style>
 </head>
 <body>
@@ -121,135 +104,105 @@ a{text-decoration:none; color:inherit;}
         <h1>شبکه بازی</h1>
         <p>سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: 14:30 از شبکه امید سیما</p>
       </div>
-      <div class="dots"><span></span><span class="active"></span><span></span></div>
     </section>
 
-    <div style="margin:18px var(--container-padding)">
-      <img src="IMAGES/banner-religious.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
+    <!-- ویدیوها -->
+    <div class="video-section">
+      <video controls>
+        <source src="FILM/video1.mp4" type="video/mp4">
+        مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+      </video>
+      <video controls>
+        <source src="FILM/video2.mp4" type="video/mp4">
+        مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+      </video>
+      <video controls>
+        <source src="FILM/video3.mp4" type="video/mp4">
+        مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+      </video>
     </div>
 
-    <div class="banner yellow" style="margin-top:18px; padding:16px; border-radius:18px;">
-  <div class="text" style="margin-bottom:12px; font-weight:800; font-size:18px;">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
+    <!-- جدول امتیازها -->
+    <div class="banner red">
+      <div class="text" style="margin-bottom:12px;">جدول امتیازها</div>
+      <div style="display:flex;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,0.1);border-radius:12px;margin-bottom:10px;">
+        <div style="font-weight:700;">علی</div>
+        <div style="font-weight:700;">1200</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,0.1);border-radius:12px;margin-bottom:10px;">
+        <div style="font-weight:700;">زهرا</div>
+        <div style="font-weight:700;">1150</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,0.1);border-radius:12px;">
+        <div style="font-weight:700;">امیر</div>
+        <div style="font-weight:700;">1100</div>
+      </div>
+    </div>
 
-  <!-- ویدیوها -->
-  <div style="display:flex; flex-direction:column; gap:16px;">
-    <video width="100%" controls style="border-radius:12px;">
-      <source src="FILM/InShot_20251130_134950196.mp4" type="video/mp4">
-      مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-    </video>
+    <!-- کنش‌ها -->
+    <div class="actions-section">
+      <div class="action-card" style="background:url('IMAGES/bag.png') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۱</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۱</div>
+        <a href="action1.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action2.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۲</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۲</div>
+        <a href="action2.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action3.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۳</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۳</div>
+        <a href="action3.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action4.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۴</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۴</div>
+        <a href="action4.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action5.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۵</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۵</div>
+        <a href="action5.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action6.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۶</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۶</div>
+        <a href="action6.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action7.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۷</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۷</div>
+        <a href="action7.html">کشفش کن!</a>
+      </div>
+      <div class="action-card" style="background:url('FILM/action8.jpg') center/cover;">
+        <div style="font-weight:700; font-size:16px;">کنش ۸</div>
+        <div style="margin:6px 0;">توضیح کوتاه کنش ۸</div>
+        <a href="action8.html">کشفش کن!</a>
+      </div>
+    </div>
+  </main>
 
-    <video width="100%" controls style="border-radius:12px;">
-      <source src="FILM/InShot_20251130_134950196.mp4" type="video/mp4">
-      مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-    </video>
-
-    <video width="100%" controls style="border-radius:12px;">
-      <source src="FILM/InShot_20251130_134950196.mp4" type="video/mp4">
-      مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-    </video>
-  </div>
+  <!-- دو بنر سفید چسبیده به هم -->
+<div style="background:#fff; padding:20px; border-radius:16px 16px 0 0; text-align:center; margin:18px var(--container-padding) 0  var(--container-padding);">
+  <span style="color:#fff; font-weight:700; font-size:18px;">بنر سفید</span>
 </div>
 
-<div class="banner red">
-  <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>
-
-  <div style="display:flex; justify-content:space-between; padding:12px 16px; background:rgba(255,255,255,0.1); border-radius:12px; margin-bottom:10px;">
-    <div style="font-weight:700;">علی</div>
-    <div style="font-weight:700;">1200</div>
-  </div>
-  
-  <div style="display:flex; justify-content:space-between; padding:12px 16px; background:rgba(255,255,255,0.1); border-radius:12px; margin-bottom:10px;">
-    <div style="font-weight:700;">زهرا</div>
-    <div style="font-weight:700;">1150</div>
-  </div>
-  
-  <div style="display:flex; justify-content:space-between; padding:12px 16px; background:rgba(255,255,255,0.1); border-radius:12px;">
-    <div style="font-weight:700;">امیر</div>
-    <div style="font-weight:700;">1100</div>
-  </div>
+<div style="background:#fff; padding:20px; border-radius:0 0 16px 16px; text-align:center; margin:0 var(--container-padding);">
+  <span style="color:#fff; font-weight:700; font-size:18px;">بنر سفید</span>
 </div>
 
-<div class="banner" style="background:linear-gradient(90deg,#6fcf97,#27ae60); margin-top:18px; padding:16px; border-radius:18px;">
-  <div class="text" style="margin-bottom:16px; font-weight:800; font-size:18px; color:#fff;">کنش‌ها</div>
-
-  <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between;">
-
-    <!-- کنش ۱ -->
-    <div style="flex:1 1 45%; background:url('IMAGES/bag.png') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۱</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۱</div>
-      <a href="action1.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۲ -->
-    <div style="flex:1 1 45%; background:url('FILM/InShot_20251130_134950196.mp4') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۲</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۲</div>
-      <a href="action2.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۳ -->
-    <div style="flex:1 1 45%; background:url('FILM/action3.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۳</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۳</div>
-      <a href="action3.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۴ -->
-    <div style="flex:1 1 45%; background:url('FILM/action4.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۴</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۴</div>
-      <a href="action4.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۵ -->
-    <div style="flex:1 1 45%; background:url('FILM/action5.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۵</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۵</div>
-      <a href="action5.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۶ -->
-    <div style="flex:1 1 45%; background:url('FILM/action6.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۶</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۶</div>
-      <a href="action6.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۷ -->
-    <div style="flex:1 1 45%; background:url('FILM/action7.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۷</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۷</div>
-      <a href="action7.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-    <!-- کنش ۸ -->
-    <div style="flex:1 1 45%; background:url('FILM/action8.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
-      <div style="font-weight:700; font-size:16px;">عنوان کنش ۸</div>
-      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۸</div>
-      <a href="action8.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
-    </div>
-
-  </div>
-</div>
-
-<div style="background:#fff; padding:20px; border-radius:16px; text-align:center;">
-  <span style="color:#fff; font-weight:700; font-size:18px;">متن بنر کاملاً سفید</span>
-
-<div style="background:#fff; padding:20px; border-radius:16px; text-align:center;">
-  <span style="color:#fff; font-weight:700; font-size:18px;">متن بنر کاملاً سفید</span>
-</div>
-    
   <div class="fab">،</div>
 
-    <!-- فوتر / نِیوِ بریج -->
-    <nav class="appbar" role="navigation" aria-label="ناوبری پایین">
-      <a class="item" href="index.html"><img src="IMAGES/InShot_20251129_213744659.png" alt="خانه">خانه</a>
-      <a class="item" href="prizes.html"><img src="IMAGES/InShot_20251129_213706327.png" alt="جوایز">جایزه‌ها</a>
-      <a class="item" href="actions.html"><img src="IMAGES/InShot_20251129_215704212.png" alt="کنش‌ها">کنش‌ها</a>
-      <a class="item" href="ranking.html"><img src="IMAGES/InShot_20251129_214214795.png" alt="رده‌بندی">رده‌بندی</a>
-      <a class="item" href="profile.html"><img src="IMAGES/InShot_20251130_102647963.png" alt="پروفایل">پروفایل</a>
-    </nav>
-  </div>
+  <!-- فوتر بزرگ -->
+  <nav class="appbar">
+    <a class="item" href="index.html"><img src="IMAGES/InShot_20251129_213744659.png" alt="خانه">خانه</a>
+    <a class="item" href="prizes.html"><img src="IMAGES/InShot_20251129_213706327.png" alt="جوایز">جایزه‌ها</a>
+    <a class="item" href="actions.html"><img src="IMAGES/InShot_20251129_215704212.png" alt="کنش‌ها">کنش‌ها</a>
+    <a class="item" href="ranking.html"><img src="IMAGES/InShot_20251129_214214795.png" alt="رده‌بندی">رده‌بندی</a>
+    <a class="item" href="profile.html"><img src="IMAGES/InShot_20251130_102647963.png" alt="پروفایل">پروفایل</a>
+  </nav>
+</div>
 </body>
 </html>

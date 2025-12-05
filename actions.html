@@ -96,26 +96,17 @@ a{text-decoration:none; color:inherit;}
   .hero-404 p{font-size:15px;}
 }
 
-/* فوتر */
-.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
-
+/* فوتر ثابت با آیکون‌های PNG (تو پوشه IMAGES) */
 .appbar{
-  position:fixed;left:0;right:0;bottom:0;
-  height:var(--nav-height);
+  position:fixed;left:0;right:0;bottom:0;height:var(--nav-height);
   border-top-left-radius:26px;border-top-right-radius:26px;
   display:flex;align-items:center;justify-content:space-around;
-  padding:12px 18px;
-  box-shadow:0 -6px 18px rgba(0,0,0,0.08);
+  padding:12px 18px;box-shadow:0 -6px 18px rgba(0,0,0,0.08);
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
 }
 .appbar .item{color:#fff;text-align:center;font-size:13px;}
-.appbar .item img{display:block;margin:0 auto 6px; width:22px; height:22px;}
-@media (max-width:768px){
-  .grid4{grid-template-columns:1fr;}
-  .course-card{flex-direction:column;align-items:flex-start;}
-  .course-card img{width:100%; height:auto;}
-}
+.appbar .item img{display:block;margin:0 auto 6px;width:24px;height:24px;object-fit:contain;}
 </style>
 </head>
 <body>

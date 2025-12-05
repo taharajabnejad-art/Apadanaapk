@@ -144,14 +144,32 @@ a{text-decoration:none; color:inherit;}
       <a href="index.html" style="color:var(--red);text-decoration:none;">←</a>
     </div>
 
-    <!-- فوتر / نِیوِ بریج -->
-    <nav class="appbar" role="navigation" aria-label="ناوبری پایین">
-      <a class="item" href="index.html"><img src="IMAGES/InShot_20251129_213744659.png" alt="خانه">خانه</a>
-      <a class="item" href="prizes.html"><img src="IMAGES/InShot_20251129_213706327.png" alt="جوایز">جایزه‌ها</a>
-      <a class="item" href="actions.html"><img src="IMAGES/InShot_20251129_215704212.png" alt="کنش‌ها">کنش‌ها</a>
-      <a class="item" href="ranking.html"><img src="IMAGES/InShot_20251129_214214795.png" alt="رده‌بندی">رده‌بندی</a>
-      <a class="item" href="profile.html"><img src="IMAGES/InShot_20251130_102647963.png" alt="پروفایل">حساب</a>
-    </nav>
+<!-- فوتر ثابت شبیه هدر -->
+<nav class="footerbar">
+  <div class="row">
+    <a class="item" href="index.html"><img src="IMAGES/InShot_20251129_213744659.png" alt="خانه">خانه</a>
+    <a class="item" href="prizes.html"><img src="IMAGES/InShot_20251204_183530922.png" alt="پخش زنده">پخش‌زنده</a>
+    <a class="item" href="actions.html"><img src="IMAGES/InShot_20251129_215704212.png" alt="کنش‌ها">کنش‌ها</a>
+    <a class="item" href="ranking.html"><img src="IMAGES/InShot_20251129_214214795.png" alt="رده‌بندی">رده‌بندی</a>
+    <a class="item" href="profile.html"><img src="IMAGES/InShot_20251129_214311963.png" alt="پروفایل">پروفایل</a>
   </div>
-</body>
-</html>
+</nav>
+
+<style>
+.footerbar{
+  padding:18px var(--container-padding);
+  border-top-left-radius:28px;
+  border-top-right-radius:28px;
+  box-shadow:0 -6px 18px rgba(0,0,0,0.06);
+  background: url('IMAGES/bag.png') no-repeat center center;
+  background-size: cover;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.footerbar .row{display:flex;align-items:center;justify-content:space-around;}
+.footerbar .item{color:#fff;text-align:center;font-size:13px; text-decoration:none;}
+.footerbar .item img{display:block;margin:0 auto 6px; width:24px; height:24px; object-fit:contain;}
+</style>

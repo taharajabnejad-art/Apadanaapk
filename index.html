@@ -128,27 +128,185 @@ a{text-decoration:none; color:inherit;}
       <img src="IMAGES/bag.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
     </div>
 
-    <div class="banner yellow" style="margin-top:18px; padding:16px; border-radius:18px;">
+<div class="banner yellow" style="margin-top:18px; padding:16px; border-radius:18px;">
   <div class="text" style="margin-bottom:12px; font-weight:800; font-size:18px;">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
 
-  <!-- ویدیوها -->
-  <div style="display:flex; flex-direction:column; gap:16px;">
-    <video width="100%" controls style="border-radius:12px;">
-      <source src="FILM/InShot_20251130_134950196.mp4" type="video/mp4">
-      مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-    </video>
+  <!-- پلیر سفارشی -->
+  <div class="custom-player">
 
-    <video width="100%" controls style="border-radius:12px;">
-      <source src="FILM/InShot_20251129_211802811.mp4" type="video/mp4">
-      مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-    </video>
+    <!-- ویدیو -->
+    <video id="vid" src="VIDEO/live.mp4"></video>
 
-    <video width="100%" controls style="border-radius:12px;">
-      <source src="FILM/InShot_20251130_134950196.mp4" type="video/mp4">
-      مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-    </video>
+    <!-- پلی وسط -->
+    <button class="center-play" id="playBtn">
+      <svg viewBox="0 0 24 24" width="42" height="42">
+        <path fill="#fff" d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+
+    <!-- کنترل‌ها -->
+    <div class="controls" id="controls">
+
+      <!-- عقب ۵ ثانیه -->
+      <button id="back5" class="ctrl-btn"></button>
+
+      <!-- پلی/پاز -->
+      <button id="playToggle" class="ctrl-btn">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path id="iconPlay" fill="#fff" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+
+      <!-- جلو ۵ ثانیه -->
+      <button id="forward5" class="ctrl-btn"></button>
+
+      <!-- تایمر -->
+      <span id="time" class="time">00:00 / 00:00</span>
+
+      <!-- seek -->
+      <input type="range" id="seek" value="0">
+
+      <!-- mute -->
+      <button id="mute" class="ctrl-btn"></button>
+
+      <!-- fullscreen -->
+      <button id="fs" class="ctrl-btn"></button>
+
+    </div>
   </div>
 </div>
+
+<style>
+/* پلیر سفارشی */
+.custom-player{
+  position:relative;
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  background:#000;
+  border-radius:22px;
+  overflow:hidden;
+  font-family: inherit;
+}
+.custom-player video{
+  width:100%;
+  display:block;
+}
+
+/* دکمه پلی وسط */
+.center-play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:88px;
+  height:88px;
+  border:none;
+  border-radius:50%;
+  background:url('IMAGES/bag.png') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  cursor:pointer;
+  transition:.25s;
+}
+.center-play:hover{ transform:translate(-50%,-50%) scale(1.05); }
+
+/* کنترل‌ها */
+.controls{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:10px;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  opacity:1;
+  transition:opacity .3s;
+}
+.custom-player.hide-controls .controls{ opacity:0; }
+
+/* دکمه‌ها با پس‌زمینه bag.png */
+.ctrl-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:16px;
+  background:url('IMAGES/bag.png') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+  cursor:pointer;
+}
+
+/* تایمر */
+.time{
+  color:#fff;
+  font-size:14px;
+  min-width:110px;
+  text-align:center;
+  font-weight:600;
+}
+
+/* Seekbar */
+.controls input[type=range]{
+  flex:1;
+  height:4px;
+  border-radius:4px;
+}
+</style>
+
+<script>
+const v = document.getElementById("vid");
+const playBtn = document.getElementById("playBtn");
+const playToggle = document.getElementById("playToggle");
+const iconPlay = document.getElementById("iconPlay");
+const seek = document.getElementById("seek");
+const time = document.getElementById("time");
+const controls = document.getElementById("controls");
+const back5 = document.getElementById("back5");
+const forward5 = document.getElementById("forward5");
+const mute = document.getElementById("mute");
+const fs = document.getElementById("fs");
+
+let hideTimer;
+
+function fmt(t){
+  let m = Math.floor(t/60);
+  let s = Math.floor(t%60);
+  return (m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+}
+
+playBtn.onclick = ()=>{ v.play(); playBtn.style.display="none"; };
+playToggle.onclick = ()=>{
+  if(v.paused){ v.play(); iconPlay.setAttribute("d","M8 5v14l11-7z"); }
+  else{ v.pause(); iconPlay.setAttribute("d","M6 6h4v12H6zm8 0h4v12h-4z"); }
+};
+back5.onclick = ()=> v.currentTime -= 5;
+forward5.onclick = ()=> v.currentTime += 5;
+v.ontimeupdate = ()=>{
+  seek.value = (v.currentTime / v.duration) * 100;
+  time.textContent = fmt(v.currentTime) + " / " + fmt(v.duration);
+};
+seek.oninput = ()=>{ v.currentTime = v.duration * (seek.value/100); };
+mute.onclick = ()=> v.muted = !v.muted;
+fs.onclick = ()=>{
+  if(!document.fullscreenElement) v.requestFullscreen();
+  else document.exitFullscreen();
+};
+function resetHide(){
+  clearTimeout(hideTimer);
+  controls.style.opacity = 1;
+  hideTimer = setTimeout(()=> controls.style.opacity = 0, 2000);
+}
+v.onmousemove = resetHide;
+v.onclick = resetHide;
+document.onmousemove = resetHide;
+resetHide();
+</script>
 
 <div class="banner red">
   <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>

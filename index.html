@@ -128,56 +128,75 @@ a{text-decoration:none; color:inherit;}
       <img src="IMAGES/bag.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
     </div>
 
-<div class="banner yellow" style="margin-top:18px; padding:16px; border-radius:18px;">
+<div class="banner yellow" style="margin-top:18px; padding:16px; border-radius:18px; background:url('IMAGES/bag.png') center/cover;">
   <div class="text" style="margin-bottom:12px; font-weight:800; font-size:18px;">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
 
-  <!-- پلیر سفارشی -->
-  <div class="custom-player">
+  <div style="display:flex; flex-direction:column; gap:16px;">
 
-    <!-- ویدیو -->
-    <video id="vid" src="FILM/InShot_20251129_211802811.mp4"></video>
-
-    <!-- پلی وسط -->
-    <button class="center-play" id="playBtn">
-      <svg viewBox="0 0 24 24" width="42" height="42">
-        <path fill="#fff" d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-
-    <!-- کنترل‌ها -->
-    <div class="controls" id="controls">
-
-      <!-- عقب ۵ ثانیه -->
-      <button id="back5" class="ctrl-btn"></button>
-
-      <!-- پلی/پاز -->
-      <button id="playToggle" class="ctrl-btn">
-        <svg viewBox="0 0 24 24" width="26" height="26">
-          <path id="iconPlay" fill="#fff" d="M8 5v14l11-7z"/>
+    <!-- ویدیو ۱ -->
+    <div class="custom-player">
+      <video id="vid1" src="FILM/video1.mp4" poster="FILM/poster1.jpg"></video>
+      <button class="center-play" id="playBtn1">
+        <svg viewBox="0 0 24 24" width="42" height="42">
+          <path fill="#fff" d="M8 5v14l11-7z"/>
         </svg>
       </button>
-
-      <!-- جلو ۵ ثانیه -->
-      <button id="forward5" class="ctrl-btn"></button>
-
-      <!-- تایمر -->
-      <span id="time" class="time">00:00 / 00:00</span>
-
-      <!-- seek -->
-      <input type="range" id="seek" value="0">
-
-      <!-- mute -->
-      <button id="mute" class="ctrl-btn"></button>
-
-      <!-- fullscreen -->
-      <button id="fs" class="ctrl-btn"></button>
-
+      <div class="controls slide-controls" id="controls1">
+        <div class="video-title">عنوان ویدیو ۱</div>
+        <button id="back5_1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M13 6v12l-8-6z"/></svg></button>
+        <button id="playToggle1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path id="iconPlay1" fill="#fff" d="M8 5v14l11-7z"/></svg></button>
+        <button id="forward5_1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M11 6v12l8-6z"/></svg></button>
+        <input type="range" id="seek1" value="0">
+        <span id="time1" class="time">00:00 / 00:00</span>
+        <button id="mute1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/></svg></button>
+        <button id="fs1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/></svg></button>
+      </div>
     </div>
+
+    <!-- ویدیو ۲ -->
+    <div class="custom-player">
+      <video id="vid2" src="FILM/video2.mp4" poster="FILM/poster2.jpg"></video>
+      <button class="center-play" id="playBtn2">
+        <svg viewBox="0 0 24 24" width="42" height="42">
+          <path fill="#fff" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <div class="controls slide-controls" id="controls2">
+        <div class="video-title">عنوان ویدیو ۲</div>
+        <button id="back5_2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M13 6v12l-8-6z"/></svg></button>
+        <button id="playToggle2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path id="iconPlay2" fill="#fff" d="M8 5v14l11-7z"/></svg></button>
+        <button id="forward5_2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M11 6v12l8-6z"/></svg></button>
+        <input type="range" id="seek2" value="0">
+        <span id="time2" class="time">00:00 / 00:00</span>
+        <button id="mute2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/></svg></button>
+        <button id="fs2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ویدیو ۳ -->
+    <div class="custom-player">
+      <video id="vid3" src="FILM/video3.mp4" poster="FILM/poster3.jpg"></video>
+      <button class="center-play" id="playBtn3">
+        <svg viewBox="0 0 24 24" width="42" height="42">
+          <path fill="#fff" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <div class="controls slide-controls" id="controls3">
+        <div class="video-title">عنوان ویدیو ۳</div>
+        <button id="back5_3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M13 6v12l-8-6z"/></svg></button>
+        <button id="playToggle3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path id="iconPlay3" fill="#fff" d="M8 5v14l11-7z"/></svg></button>
+        <button id="forward5_3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M11 6v12l8-6z"/></svg></button>
+        <input type="range" id="seek3" value="0">
+        <span id="time3" class="time">00:00 / 00:00</span>
+        <button id="mute3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/></svg></button>
+        <button id="fs3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/></svg></button>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <style>
-/* پلیر سفارشی */
 .custom-player{
   position:relative;
   width:100%;
@@ -186,14 +205,17 @@ a{text-decoration:none; color:inherit;}
   background:#000;
   border-radius:22px;
   overflow:hidden;
-  font-family: inherit;
+  font-family:inherit;
 }
+
+/* ویدیو */
 .custom-player video{
   width:100%;
   display:block;
+  border-radius:16px;
 }
 
-/* دکمه پلی وسط */
+/* دکمه وسط پلی */
 .center-play{
   position:absolute;
   top:50%;
@@ -210,25 +232,32 @@ a{text-decoration:none; color:inherit;}
   box-shadow:0 10px 30px rgba(0,0,0,0.35);
   cursor:pointer;
   transition:.25s;
+  z-index:10;
 }
 .center-play:hover{ transform:translate(-50%,-50%) scale(1.05); }
 
-/* کنترل‌ها */
-.controls{
+/* کنترل‌ها با انیمیشن Slide و Fade */
+.slide-controls{
   position:absolute;
   left:0; right:0; bottom:0;
-  padding:10px;
+  padding:12px;
   background:rgba(0,0,0,0.35);
   backdrop-filter:blur(8px);
   display:flex;
   align-items:center;
-  gap:10px;
-  opacity:1;
-  transition:opacity .3s;
+  gap:8px;
+  flex-wrap:wrap;
+  transform:translateY(100%);
+  opacity:0;
+  transition: all 0.4s ease;
+  border-radius:0 0 16px 16px;
 }
-.custom-player.hide-controls .controls{ opacity:0; }
+.custom-player.show-controls .slide-controls{
+  transform:translateY(0);
+  opacity:1;
+}
 
-/* دکمه‌ها با پس‌زمینه bag.png */
+/* دکمه‌ها */
 .ctrl-btn{
   width:42px;
   height:42px;
@@ -242,130 +271,101 @@ a{text-decoration:none; color:inherit;}
   cursor:pointer;
 }
 
-/* تایمر */
+/* تایمر و عنوان */
 .time{
   color:#fff;
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Custom Player</title>
-<style>
-  body {
-    background:#111;
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-  }
+  font-size:14px;
+  min-width:110px;
+  text-align:center;
+  font-weight:600;
+}
+.video-title{
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  width:100%;
+  text-align:center;
+}
 
-  .player {
-    width:90%;
-    max-width:700px;
-    position:relative;
-    overflow:hidden;
-    border-radius:14px;
-  }
-
-  video {
-    width:100%;
-    display:block;
-  }
-
-  /* پوستر قبل از پخش */
-  .poster {
-    position:absolute;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:url('poster.jpg') center/cover no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-  }
-
-  .poster.hide { opacity:0; pointer-events:none; transition:0.4s; }
-
-  /* دکمه پخش وسط */
-  .play-btn {
-    width:80px;height:80px;
-    background:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:35px;
-    color:black;
-  }
-
-  /* منوی کنترل پایین (نمایش با کلیک) */
-  .controls {
-    position:absolute;
-    bottom:-110px; /* مخفی */
-    left:0;width:100%;
-    background:rgba(0,0,0,0.55);
-    padding:12px;
-    box-sizing:border-box;
-    backdrop-filter:blur(6px);
-    transition:0.35s ease;
-  }
-
-  .controls.show {
-    bottom:0; /* از پایین میاد بالا */
-  }
-
-  /* عنوان ویدیو بالای کنترل‌ها */
-  .title {
-    color:white;
-    font-size:17px;
-    margin-bottom:8px;
-  }
+/* Seekbar */
+.slide-controls input[type=range]{
+  flex:1;
+  height:4px;
+  border-radius:4px;
+}
 </style>
-</head>
-<body>
-
-<div class="player" id="playerBox">
-
-  <video id="video" src="FILM/InShot_20251129_211802811.mp4" preload="metadata"></video>
-
-  <div class="poster" id="poster">
-    <div class="play-btn">▶</div>
-  </div>
-
-  <div class="controls" id="controls">
-    <div class="title">عنوان ویدیو</div>
-    <input type="range" id="seek" min="0" max="100" value="0" style="width:100%" />
-  </div>
-
-</div>
 
 <script>
-const video = document.getElementById('video');
-const poster = document.getElementById('poster');
-const controls = document.getElementById('controls');
-const player = document.getElementById('playerBox');
+function setupPlayer(vId, playBtnId, playToggleId, iconPlayId, back5Id, forward5Id, seekId, timeId, muteId, fsId, containerId){
+  const v = document.getElementById(vId);
+  const playBtn = document.getElementById(playBtnId);
+  const playToggle = document.getElementById(playToggleId);
+  const iconPlay = document.getElementById(iconPlayId);
+  const back5 = document.getElementById(back5Id);
+  const forward5 = document.getElementById(forward5Id);
+  const seek = document.getElementById(seekId);
+  const time = document.getElementById(timeId);
+  const mute = document.getElementById(muteId);
+  const fs = document.getElementById(fsId);
+  const container = document.getElementById(containerId);
 
-poster.addEventListener('click', () => {
-  poster.classList.add('hide');
-  video.play();
-});
+  function fmt(t){
+    let m=Math.floor(t/60);
+    let s=Math.floor(t%60);
+    return (m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+  }
 
-// وقتی کاربر روی صفحه کلیک کند کنترل‌ها ظاهر شوند
-player.addEventListener('click', () => {
-  controls.classList.add('show');
+  /* پلی وسط */
+  playBtn.onclick = ()=>{
+    v.play();
+    playBtn.style.display="none";
+    container.classList.add("show-controls");
+  };
 
-  // بعد از ۳ ثانیه دوباره بسته شود
-  setTimeout(() => {
-    controls.classList.remove('show');
-  }, 3000);
-});
+  /* پلی پایین */
+  playToggle.onclick = ()=>{
+    if(v.paused){
+      v.play();
+      iconPlay.setAttribute("d","M8 5v14l11-7z");
+    } else {
+      v.pause();
+      iconPlay.setAttribute("d","M6 6h4v12H6zm8 0h4v12h-4z");
+    }
+  };
+
+  /* عقب/جلو ۵ ثانیه */
+  back5.onclick = ()=> v.currentTime -=5;
+  forward5.onclick = ()=> v.currentTime +=5;
+
+  /* زمان و seek */
+  v.ontimeupdate = ()=>{
+    seek.value = (v.currentTime/v.duration)*100;
+    time.textContent = fmt(v.currentTime)+" / "+fmt(v.duration);
+  };
+  seek.oninput = ()=>{ v.currentTime = v.duration*(seek.value/100); };
+
+  /* بی‌صدا */
+  mute.onclick = ()=> v.muted = !v.muted;
+
+  /* fullscreen */
+  fs.onclick = ()=>{
+    if(!document.fullscreenElement) v.requestFullscreen();
+    else document.exitFullscreen();
+  };
+
+  /* کلیک روی ویدیو کنترل‌ها */
+  v.onclick = ()=>{ container.classList.toggle("show-controls"); };
+
+  /* ظاهر شدن کنترل‌ها با موس */
+  v.onmousemove = ()=>{ container.classList.add("show-controls"); clearTimeout(v.hideTimer); v.hideTimer=setTimeout(()=>container.classList.remove("show-controls"),2000); };
+  container.onmousemove = ()=>{ container.classList.add("show-controls"); clearTimeout(v.hideTimer); v.hideTimer=setTimeout(()=>container.classList.remove("show-controls"),2000); };
+}
+
+/* فراخوانی برای هر سه ویدیو */
+setupPlayer("vid1","playBtn1","playToggle1","iconPlay1","back5_1","forward5_1","seek1","time1","mute1","fs1","controls1");
+setupPlayer("vid2","playBtn2","playToggle2","iconPlay2","back5_2","forward5_2","seek2","time2","mute2","fs2","controls2");
+setupPlayer("vid3","playBtn3","playToggle3","iconPlay3","back5_3","forward5_3","seek3","time3","mute3","fs3","controls3");
 </script>
-
-</body>
-</html>
-
 <div class="banner red">
   <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>
 

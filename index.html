@@ -128,125 +128,6 @@ a{text-decoration:none; color:inherit;}
       <img src="IMAGES/bag.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
     </div>
 
-<div class="banner yellow" style="margin-top:18px; padding:16px; border-radius:18px; background:url('IMAGES/bag.png') center/cover;">
-  <div class="text" style="margin-bottom:12px; font-weight:800; font-size:18px;">تماشاخونه! بخش‌های جذاب برنامه رو اینجا ببین!</div>
-
-  <div style="display:flex; flex-direction:column; gap:16px;">
-
-    <!-- ویدیو ۱ -->
-    <div class="custom-player">
-      <video id="vid1" src="FILM/video1.mp4" poster="FILM/poster1.jpg"></video>
-      <button class="center-play" id="playBtn1">
-        <svg viewBox="0 0 24 24" width="42" height="42">
-          <path fill="#fff" d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-      <div class="controls slide-controls" id="controls1">
-        <div class="video-title">عنوان ویدیو ۱</div>
-        <button id="back5_1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M13 6v12l-8-6z"/></svg></button>
-        <button id="playToggle1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path id="iconPlay1" fill="#fff" d="M8 5v14l11-7z"/></svg></button>
-        <button id="forward5_1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M11 6v12l8-6z"/></svg></button>
-        <input type="range" id="seek1" value="0">
-        <span id="time1" class="time">00:00 / 00:00</span>
-        <button id="mute1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/></svg></button>
-        <button id="fs1" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/></svg></button>
-      </div>
-    </div>
-
-    <!-- ویدیو ۲ -->
-    <div class="custom-player">
-      <video id="vid2" src="FILM/video2.mp4" poster="FILM/poster2.jpg"></video>
-      <button class="center-play" id="playBtn2">
-        <svg viewBox="0 0 24 24" width="42" height="42">
-          <path fill="#fff" d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-      <div class="controls slide-controls" id="controls2">
-        <div class="video-title">عنوان ویدیو ۲</div>
-        <button id="back5_2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M13 6v12l-8-6z"/></svg></button>
-        <button id="playToggle2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path id="iconPlay2" fill="#fff" d="M8 5v14l11-7z"/></svg></button>
-        <button id="forward5_2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M11 6v12l8-6z"/></svg></button>
-        <input type="range" id="seek2" value="0">
-        <span id="time2" class="time">00:00 / 00:00</span>
-        <button id="mute2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/></svg></button>
-        <button id="fs2" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/></svg></button>
-      </div>
-    </div>
-
-    <!-- ویدیو ۳ -->
-    <div class="custom-player">
-      <video id="vid3" src="FILM/video3.mp4" poster="FILM/poster3.jpg"></video>
-      <button class="center-play" id="playBtn3">
-        <svg viewBox="0 0 24 24" width="42" height="42">
-          <path fill="#fff" d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-      <div class="controls slide-controls" id="controls3">
-        <div class="video-title">عنوان ویدیو ۳</div>
-        <button id="back5_3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M13 6v12l-8-6z"/></svg></button>
-        <button id="playToggle3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path id="iconPlay3" fill="#fff" d="M8 5v14l11-7z"/></svg></button>
-        <button id="forward5_3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M11 6v12l8-6z"/></svg></button>
-        <input type="range" id="seek3" value="0">
-        <span id="time3" class="time">00:00 / 00:00</span>
-        <button id="mute3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/></svg></button>
-        <button id="fs3" class="ctrl-btn"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/></svg></button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<style>
-.custom-player{
-  position:relative;
-  width:100%;
-  max-width:900px;
-  margin:0 auto;
-  background:#000;
-  border-radius:22px;
-  overflow:hidden;
-  font-family:inherit;
-}
-
-/* ویدیو */
-.custom-player video{
-  width:100%;
-  display:block;
-  border-radius:16px;
-}
-
-/* دکمه وسط پلی */
-.center-play{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:88px;
-  height:88px;
-  border:none;
-  border-radius:50%;
-  background:url('IMAGES/bag.png') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.35);
-  cursor:pointer;
-  transition:.25s;
-  z-index:10;
-}
-.center-play:hover{ transform:translate(-50%,-50%) scale(1.05); }
-
-/* کنترل‌ها با انیمیشن Slide و Fade */
-.slide-controls{
-  position:absolute;
-  left:0; right:0; bottom:0;
-  padding:12px;
-  background:rgba(0,0,0,0.35);
-  backdrop-filter:blur(8px);
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
   transform:translateY(100%);
   opacity:0;
   transition: all 0.4s ease;
@@ -366,6 +247,7 @@ setupPlayer("vid1","playBtn1","playToggle1","iconPlay1","back5_1","forward5_1","
 setupPlayer("vid2","playBtn2","playToggle2","iconPlay2","back5_2","forward5_2","seek2","time2","mute2","fs2","controls2");
 setupPlayer("vid3","playBtn3","playToggle3","iconPlay3","back5_3","forward5_3","seek3","time3","mute3","fs3","controls3");
 </script>
+
 <div class="banner red">
   <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>
 

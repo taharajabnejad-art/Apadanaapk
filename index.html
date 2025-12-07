@@ -245,68 +245,126 @@ a{text-decoration:none; color:inherit;}
 /* تایمر */
 .time{
   color:#fff;
-  font-size:14px;
-  min-width:110px;
-  text-align:center;
-  font-weight:600;
-}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Custom Player</title>
+<style>
+  body {
+    background:#111;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
 
-/* Seekbar */
-.controls input[type=range]{
-  flex:1;
-  height:4px;
-  border-radius:4px;
-}
+  .player {
+    width:90%;
+    max-width:700px;
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+  }
+
+  video {
+    width:100%;
+    display:block;
+  }
+
+  /* پوستر قبل از پخش */
+  .poster {
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:url('poster.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+  }
+
+  .poster.hide { opacity:0; pointer-events:none; transition:0.4s; }
+
+  /* دکمه پخش وسط */
+  .play-btn {
+    width:80px;height:80px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    color:black;
+  }
+
+  /* منوی کنترل پایین (نمایش با کلیک) */
+  .controls {
+    position:absolute;
+    bottom:-110px; /* مخفی */
+    left:0;width:100%;
+    background:rgba(0,0,0,0.55);
+    padding:12px;
+    box-sizing:border-box;
+    backdrop-filter:blur(6px);
+    transition:0.35s ease;
+  }
+
+  .controls.show {
+    bottom:0; /* از پایین میاد بالا */
+  }
+
+  /* عنوان ویدیو بالای کنترل‌ها */
+  .title {
+    color:white;
+    font-size:17px;
+    margin-bottom:8px;
+  }
 </style>
+</head>
+<body>
+
+<div class="player" id="playerBox">
+
+  <video id="video" src="FILM/video3.mp4" preload="metadata"></video>
+
+  <div class="poster" id="poster">
+    <div class="play-btn">▶</div>
+  </div>
+
+  <div class="controls" id="controls">
+    <div class="title">عنوان ویدیو</div>
+    <input type="range" id="seek" min="0" max="100" value="0" style="width:100%" />
+  </div>
+
+</div>
 
 <script>
-const v = document.getElementById("vid");
-const playBtn = document.getElementById("playBtn");
-const playToggle = document.getElementById("playToggle");
-const iconPlay = document.getElementById("iconPlay");
-const seek = document.getElementById("seek");
-const time = document.getElementById("time");
-const controls = document.getElementById("controls");
-const back5 = document.getElementById("back5");
-const forward5 = document.getElementById("forward5");
-const mute = document.getElementById("mute");
-const fs = document.getElementById("fs");
+const video = document.getElementById('video');
+const poster = document.getElementById('poster');
+const controls = document.getElementById('controls');
+const player = document.getElementById('playerBox');
 
-let hideTimer;
+poster.addEventListener('click', () => {
+  poster.classList.add('hide');
+  video.play();
+});
 
-function fmt(t){
-  let m = Math.floor(t/60);
-  let s = Math.floor(t%60);
-  return (m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
-}
+// وقتی کاربر روی صفحه کلیک کند کنترل‌ها ظاهر شوند
+player.addEventListener('click', () => {
+  controls.classList.add('show');
 
-playBtn.onclick = ()=>{ v.play(); playBtn.style.display="none"; };
-playToggle.onclick = ()=>{
-  if(v.paused){ v.play(); iconPlay.setAttribute("d","M8 5v14l11-7z"); }
-  else{ v.pause(); iconPlay.setAttribute("d","M6 6h4v12H6zm8 0h4v12h-4z"); }
-};
-back5.onclick = ()=> v.currentTime -= 5;
-forward5.onclick = ()=> v.currentTime += 5;
-v.ontimeupdate = ()=>{
-  seek.value = (v.currentTime / v.duration) * 100;
-  time.textContent = fmt(v.currentTime) + " / " + fmt(v.duration);
-};
-seek.oninput = ()=>{ v.currentTime = v.duration * (seek.value/100); };
-mute.onclick = ()=> v.muted = !v.muted;
-fs.onclick = ()=>{
-  if(!document.fullscreenElement) v.requestFullscreen();
-  else document.exitFullscreen();
-};
-function resetHide(){
-  clearTimeout(hideTimer);
-  controls.style.opacity = 1;
-  hideTimer = setTimeout(()=> controls.style.opacity = 0, 2000);
-}
-v.onmousemove = resetHide;
-v.onclick = resetHide;
-document.onmousemove = resetHide;
-resetHide();
+  // بعد از ۳ ثانیه دوباره بسته شود
+  setTimeout(() => {
+    controls.classList.remove('show');
+  }, 3000);
+});
 </script>
+
+</body>
+</html>
 
 <div class="banner red">
   <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>

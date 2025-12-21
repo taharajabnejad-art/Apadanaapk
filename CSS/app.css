@@ -140,6 +140,171 @@ a:hover {
   justify-content: center;
 }
 
+/* ===============================
+   Custom Video Player CSS
+   =============================== */
+
+/* کانتینر پلیر */
+.custom-player{
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;               /* قفل نسبت تصویر */
+  background: #000 url('IMAGES/bag.png') center/cover no-repeat;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* سازگاری با WebView های قدیمی */
+.custom-player::before{
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+.custom-player > *{
+  position: absolute;
+  inset: 0;
+}
+
+/* ویدیو */
+.custom-player video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: transparent;
+}
+
+/* ===============================
+   دکمه پلی وسط (Fade)
+   =============================== */
+.center-play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 88px;
+  height: 88px;
+  border: none;
+  border-radius: 50%;
+  background: url('IMAGES/bag.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 1;
+  transition: opacity .35s ease;
+}
+
+.custom-player.playing .center-play{
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===============================
+   کنترل‌ها (Slide)
+   =============================== */
+.controls{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;                 /* خیلی مهم */
+  padding: 8px 10px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 4;
+
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform .35s ease, opacity .35s ease;
+}
+
+/* نمایش کنترل‌ها */
+.custom-player.show-controls .controls{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===============================
+   دکمه‌های کنترل
+   =============================== */
+.ctrl-btn{
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  background: url('IMAGES/bag.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ===============================
+   تایمر
+   =============================== */
+.time{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 110px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===============================
+   نوار Seek
+   =============================== */
+.controls input[type="range"]{
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  appearance: none;
+  background: rgba(255,255,255,0.4);
+  outline: none;
+}
+
+.controls input[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ===============================
+   موبایل
+   =============================== */
+@media (max-width: 768px){
+  .controls{
+    height: 52px;
+  }
+
+  .ctrl-btn{
+    width: 38px;
+    height: 38px;
+  }
+
+  .time{
+    font-size: 13px;
+    min-width: 96px;
+  }
+}
+
+/* جلوگیری از فول‌اسکرین ناخواسته موبایل */
+video{
+  max-height: 100%;
+  touch-action: manipulation;
+}
+
 /* Responsive */
 @media (max-width: 420px) {
   .card .thumb {

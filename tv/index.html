@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>۴۰۴ — صفحه پیدا نشد — آپادانا</title>
-
-<!-- لینک به فایل CSS محلی (در صورت نیاز باقی می‌ذاریم) -->
+<title>صفحه اصلی - آپادانا</title>
 <link rel="stylesheet" href="CSS/app.css">
-
 <style>
 :root{
   --red:#ef4b57;
+  --red-dark:#e54550;
+  --pink:#ffdede;
   --nav-height:92px;
+  --card-radius:20px;
   --container-padding:16px;
 }
 html, body {
@@ -35,120 +35,499 @@ a{text-decoration:none; color:inherit;}
   right: 0;
   z-index: 1000;
 }
-.page { padding-top: 92px; } /* فاصله برای هدر */
+.page { padding-top: 92px; }
 .topbar .row{display:flex;align-items:center;justify-content:space-between}
 .tag{background:rgba(255,255,255,0.95);padding:8px 14px;border-radius:12px;font-weight:700;}
 .hamburger{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
 
-/* هرو / بنر خطای 404 */
-.container{max-width:980px;margin:18px auto;padding:0 16px;}
-.hero-404 {
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 12px 40px rgba(0,0,0,0.10);
-  margin: 18px 16px;
-}
-.hero-404 .inner {
-  background: linear-gradient(90deg,#ff5a6a,#e83040);
-  padding:42px 22px;
+/* هرو */
+.hero .slide{
+  background: linear-gradient(90deg,#fbe68a,#ffd76a), url('IMAGES/hero-bg.png') center/cover no-repeat;
+  color:#000; /* عنوان شبکه بازی سفید */
+  border-radius:24px;
+  padding:28px;
+  min-height:140px;
   display:flex;
-  flex-direction:column;
-  gap:12px;
   align-items:center;
   justify-content:center;
+  flex-direction:column;
   text-align:center;
-  color:#fff;
-  border-radius:16px;
 }
-.hero-404 h1{
+.hero .slide h1{
+  font-size:26px;
   margin:0;
-  font-size:48px;
-  line-height:1;
-  font-weight:900;
-  letter-spacing:1px;
+  color:#000; /* عنوان شبکه بازی سفید */
 }
-.hero-404 p{
-  margin:0;
-  font-size:16px;
+.hero .slide p{
+  color:#000; /* متن زیر شبکه بازی سفید */
   opacity:.95;
-}
-
-/* راهنمایی و دکمه */
-.hint-box{
-  margin:14px 16px;
-  text-align:center;
-}
-.btn {
-  display:inline-block;
-  background:#fff;
-  color:var(--red);
-  padding:10px 18px;
-  border-radius:12px;
+  margin-top:6px;
   font-weight:700;
-  box-shadow:0 10px 24px rgba(232,48,64,0.12);
-  margin-top:12px;
-  text-decoration:none;
 }
+/* بخش تیره */
+.section-dark{background:#052c49;padding:24px var(--container-padding);color:#fff;border-radius:16px;margin:18px var(--container-padding);}
+.section-dark h2{margin:0 0 12px 0;text-align:right}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.card{background:rgba(255,255,255,0.04);border-radius:14px;padding:18px;text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.card .icon{font-size:34px;margin-bottom:8px}
+.card .title{font-weight:700}
 
-/* کوچک‌تر کردن متن توضیح در موبایل */
-@media (max-width:420px){
-  .hero-404 h1{font-size:40px;}
-  .hero-404 p{font-size:15px;}
-}
+/* بنرها */
+.banner{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;}
+.banner.yellow{background:linear-gradient(90deg,#fbe68a,#ffd76a);color:#000;}
+.banner.red{background:linear-gradient(90deg,#ff7a7a,#ff3b5f);color:#fff;} /* متن سفید شد */
 
-/* فوتر ثابت با آیکون‌های PNG (تو پوشه IMAGES) */
+/* رده بندی سه نفر برتر */
+.ranking{margin:18px var(--container-padding);border-radius:18px;overflow:hidden;padding:22px;background:#3b82f6;color:#fff;}
+.ranking h3{text-align:right;margin:0 0 12px 0;font-weight:700;}
+.ranking .rank-card{background:rgba(255,255,255,0.1);border-radius:14px;padding:14px;margin:10px 0;display:flex;align-items:center;justify-content:space-between;}
+.ranking .rank-card .player{font-weight:700;}
+.ranking .rank-card .score{font-weight:700;}
+
+/* فوتر */
+.fab{position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:74px;height:74px;border-radius:50%;background:var(--red);box-shadow:0 8px 22px rgba(229,69,80,0.35);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
+
 .appbar{
-  position:fixed;left:0;right:0;bottom:0;height:var(--nav-height);
+  position:fixed;left:0;right:0;bottom:0;
+  height:var(--nav-height);
   border-top-left-radius:26px;border-top-right-radius:26px;
   display:flex;align-items:center;justify-content:space-around;
-  padding:12px 18px;box-shadow:0 -6px 18px rgba(0,0,0,0.08);
+  padding:12px 18px;
+  box-shadow:0 -6px 18px rgba(0,0,0,0.08);
   background: url('IMAGES/bag.png') no-repeat center center;
   background-size: cover;
 }
 .appbar .item{color:#fff;text-align:center;font-size:13px;}
-.appbar .item img{display:block;margin:0 auto 6px;width:24px;height:24px;object-fit:contain;}
+.appbar .item img{display:block;margin:0 auto 6px; width:22px; height:22px;}
+@media (max-width:768px){
+  .grid4{grid-template-columns:1fr;}
+  .course-card{flex-direction:column;align-items:flex-start;}
+  .course-card img{width:100%; height:auto;}
+}
 </style>
 </head>
 <body>
-  <div class="page">
-    <header class="topbar" role="banner">
-      <div class="row">
-        <div class="tag"><a href="profile.html" title="پروفایل">شروع کن!</a></div>
-        <div class="hamburger" aria-hidden>≡</div>
-      </div>
-    </header>
-
-    <main class="container" role="main" aria-labelledby="title-404">
-      <!-- بنر 404 -->
-      <section class="hero-404" aria-label="خطا ۴۰۴ - صفحه پیدا نشد">
-        <div class="inner">
-          <h1 id="title-404">۴۰۴</h1>
-          <p>اوه! صفحه‌ای که دنبالش بودی پیدا نشد — ممکنه آدرس اشتباه باشه یا صفحه حذف شده باشه.</p>
-
-          <!-- دکمه‌های عملی -->
-          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;">
-            <a class="btn" href="index.html" title="بازگشت به خانه">بازگشت به خانه</a>
-            <a class="btn" href="contact.html" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.18)">تماس با پشتیبانی</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- توضیح کوتاه و لینک‌های مفید -->
-      <div class="hint-box" aria-hidden>
-        <p style="margin:0 6px 8px 6px;color:#444">پیشنهاد می‌کنیم به صفحهٔ اصلی برگردی یا از منوی پایین استفاده کنی. اگر لینکی از داخل سایت بود که خطا داد، به ما گزارش بده.</p>
-      </div>
-    </main>
-
-    <!-- floating quick action (اختیاری) -->
-    <div class="fab" title="بازگشت سریع" style="position:fixed;right:20px;bottom:calc(var(--nav-height) + 28px);width:64px;height:64px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 10px 30px rgba(232,48,64,0.14);">
-      <a href="index.html" style="color:var(--red);text-decoration:none;">←</a>
+<div class="page">
+  <header class="topbar">
+    <div class="row">
+      <div class="tag"><a href="profile.html">شروع کن!</a></div>
+      <div class="hamburger">≡</div>
     </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="slide">
+        <h1>شبکه بازی</h1>
+        <p>سه‌شنبه، چهارشنبه، پنجشنبه، جمعه ساعت: ۱۴:۳۰ از شبکه امید سیما</p>
+      </div>
+      <div class="dots"><span></span><span class="active"></span><span></span></div>
+    </section>
+
+    <div style="margin:18px var(--container-padding)">
+      <img src="IMAGES/bag.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
+    </div>
+
+<div class="banner yellow" style="position:relative; padding:16px; border-radius:18px; overflow:hidden;">
+    <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>
+
+  <div class="custom-player" data-title="ویدیو 1" data-src="https://uploadkon.ir/uploads/d2cb11_25InShot-20251130-134950196.mp4">
+    <video src="https://uploadkon.ir/uploads/d2cb11_25InShot-20251130-134950196.mp4"></video>
+    <button class="center-play">
+      <svg viewBox="0 0 24 24" width="42" height="42">
+        <path fill="#fff" d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <div class="controls">
+      <span class="video-title">آپادانا</span>
+      <button class="ctrl-btn back5">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M13 6v12l-8-6z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn playToggle">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn forward5">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M11 6v12l8-6z"/>
+        </svg>
+      </button>
+      <span class="time">۰۰:۰۰ / ۰۰:۰۰</span>
+      <input type="range" class="seek" value="0">
+      <button class="ctrl-btn mute">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn fs">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="custom-player" data-title="ویدیو 2" data-src="FILM/video2.mp4">
+    <video src="FILM/video2.mp4"></video>
+    <button class="center-play">
+      <svg viewBox="0 0 24 24" width="42" height="42">
+        <path fill="#fff" d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <div class="controls">
+      <span class="video-title">ویدیو 2</span>
+      <button class="ctrl-btn back5">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M13 6v12l-8-6z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn playToggle">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn forward5">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M11 6v12l8-6z"/>
+        </svg>
+      </button>
+      <span class="time">00:00 / 00:00</span>
+      <input type="range" class="seek" value="0">
+      <button class="ctrl-btn mute">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn fs">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="custom-player" data-title="ویدیو 3" data-src="FILM/video3.mp4">
+    <video src="FILM/video3.mp4"></video>
+    <button class="center-play">
+      <svg viewBox="0 0 24 24" width="42" height="42">
+        <path fill="#fff" d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <div class="controls">
+      <span class="video-title">ویدیو 3</span>
+      <button class="ctrl-btn back5">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M13 6v12l-8-6z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn playToggle">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn forward5">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M11 6v12l8-6z"/>
+        </svg>
+      </button>
+      <span class="time">00:00 / 00:00</span>
+      <input type="range" class="seek" value="0">
+      <button class="ctrl-btn mute">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M7 9v6h4l5 5V4l-5 5H7z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn fs">
+        <svg viewBox="0 0 24 24" width="26" height="26">
+          <path fill="#fff" d="M7 7h5V5H5v7h2V7zm10 10h-5v2h7v-7h-2v5z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.banner.yellow{
+  background: linear-gradient(90deg,#fbe68a,#ffd76a);
+  border-radius:18px;
+  padding:16px;
+}
+
+.custom-player{
+  position:relative;
+  margin:16px 0;
+  border-radius:22px;
+  overflow:hidden;
+  background:#000 url('IMAGES/bag.png') center/cover no-repeat;
+  font-family:inherit;
+}
+
+.custom-player video{
+  width:100%;
+  display:block;
+}
+
+.center-play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:88px;
+  height:88px;
+  border:none;
+  border-radius:50%;
+  background:url('IMAGES/bag.png') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  cursor:pointer;
+  transition:.25s;
+  z-index:3;
+}
+
+.center-play:hover{
+  transform:translate(-50%,-50%) scale(1.05);
+}
+
+.controls{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:10px;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  opacity:0;
+  transition:all .3s;
+  flex-wrap:wrap;
+  z-index:2;
+}
+
+.custom-player.show-controls .controls{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.ctrl-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:16px;
+  background:url('IMAGES/bag.png') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+  cursor:pointer;
+}
+
+.time{
+  color:#fff;
+  font-size:14px;
+  min-width:110px;
+  text-align:center;
+  font-weight:600;
+}
+
+.controls input[type=range]{
+  flex:1;
+  height:4px;
+  border-radius:4px;
+}
+
+.video-title{
+  width:100%;
+  color:#fff;
+  font-weight:700;
+  font-size:16px;
+}
+</style>
+
+<script>
+document.querySelectorAll('.custom-player').forEach(player=>{
+  const video = player.querySelector('video');
+  const playBtn = player.querySelector('.center-play');
+  const playToggle = player.querySelector('.playToggle');
+  const iconPlay = playToggle.querySelector('path');
+  const seek = player.querySelector('.seek');
+  const time = player.querySelector('.time');
+  const muteBtn = player.querySelector('.mute');
+  const fsBtn = player.querySelector('.fs');
+  const back5 = player.querySelector('.back5');
+  const forward5 = player.querySelector('.forward5');
+
+  function fmt(t){ let m=Math.floor(t/60), s=Math.floor(t%60); return (m<10?"0"+m:m)+":"+(s<10?"0"+s:s); }
+
+  playBtn.onclick = ()=>{
+    video.play();
+    playBtn.style.display="none";
+    player.classList.add('show-controls');
+  };
+
+  playToggle.onclick = ()=>{
+    if(video.paused){
+      video.play();
+      iconPlay.setAttribute("d","M8 5v14l11-7z");
+    } else {
+      video.pause();
+      iconPlay.setAttribute("d","M6 6h4v12H6zm8 0h4v12h-4z");
+    }
+  };
+
+  back5.onclick = ()=> video.currentTime -= 5;
+  forward5.onclick = ()=> video.currentTime += 5;
+  muteBtn.onclick = ()=> video.muted=!video.muted;
+  fsBtn.onclick = ()=> !document.fullscreenElement ? video.requestFullscreen() : document.exitFullscreen();
+
+  video.ontimeupdate = ()=>{
+    seek.value = (video.currentTime / video.duration)*100;
+    time.textContent = fmt(video.currentTime)+" / "+fmt(video.duration);
+  };
+
+  seek.oninput = ()=> video.currentTime = video.duration*(seek.value/100);
+
+  /* تعویض خودکار */
+  video.onended = ()=>{
+    let next = player.nextElementSibling;
+    if(next && next.classList.contains('custom-player')){
+      next.querySelector('.center-play').click();
+    }
+  };
+
+  /* نمایش کنترل‌ها با کلیک روی پلیر */
+  video.onclick = ()=> player.classList.toggle('show-controls');
+});
+</script> 
+
+<div class="banner red">
+  <div class="text" style="margin-bottom:12px;">جدول امتیازها — بریم ببینیم کی بالاست!</div>
+
+  <div style="display:flex; justify-content:space-between; padding:12px 16px; background:rgba(255,255,255,0.1); border-radius:12px; margin-bottom:10px;">
+    <div style="font-weight:700;">علی</div>
+    <div style="font-weight:700;">1200</div>
+  </div>
+  
+  <div style="display:flex; justify-content:space-between; padding:12px 16px; background:rgba(255,255,255,0.1); border-radius:12px; margin-bottom:10px;">
+    <div style="font-weight:700;">زهرا</div>
+    <div style="font-weight:700;">1150</div>
+  </div>
+  
+  <div style="display:flex; justify-content:space-between; padding:12px 16px; background:rgba(255,255,255,0.1); border-radius:12px;">
+    <div style="font-weight:700;">امیر</div>
+    <div style="font-weight:700;">1100</div>
+  </div>
+
+  <a href="actions.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none; margin-top:20px; display:block;">بزن بریم!</a>
+</div>
+
+<div class="banner" style="background:linear-gradient(90deg,#6fcf97,#27ae60); margin-top:18px; padding:16px; border-radius:18px;">
+  <div class="text" style="margin-bottom:16px; font-weight:800; font-size:18px; color:#fff;">کنش‌ها</div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between;">
+
+    <!-- کنش ۱ -->
+    <div style="flex:1 1 45%; background:url('IMAGES/bag.png') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۱</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۱</div>
+      <a href="action1.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۲ -->
+    <div style="flex:1 1 45%; background:url('FILM/InShot_20251130_134950196.mp4') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۲</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۲</div>
+      <a href="action2.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۳ -->
+    <div style="flex:1 1 45%; background:url('FILM/action3.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۳</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۳</div>
+      <a href="action3.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۴ -->
+    <div style="flex:1 1 45%; background:url('FILM/action4.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۴</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۴</div>
+      <a href="action4.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۵ -->
+    <div style="flex:1 1 45%; background:url('FILM/action5.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۵</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۵</div>
+      <a href="action5.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۶ -->
+    <div style="flex:1 1 45%; background:url('FILM/action6.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۶</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۶</div>
+      <a href="action6.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۷ -->
+    <div style="flex:1 1 45%; background:url('FILM/action7.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۷</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۷</div>
+      <a href="action7.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+    <!-- کنش ۸ -->
+    <div style="flex:1 1 45%; background:url('FILM/action8.jpg') center/cover no-repeat; border-radius:12px; padding:16px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:150px;">
+      <div style="font-weight:700; font-size:16px;">عنوان کنش ۸</div>
+      <div style="margin:6px 0;">متن کوتاه توضیح کنش ۸</div>
+      <a href="action8.html" style="background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:8px; color:#fff; text-align:center; font-weight:700; text-decoration:none;">کشفش کن!</a>
+    </div>
+
+  </div>
+</div>
+
+<video
+ id=”my-player”
+ class=”video-js”
+ controls
+ preload=”auto”
+ poster=”//vjs.zencdn.net/v/oceans.png”
+ data-setup=’{}’>
+ <source src=”//vjs.zencdn.net/v/oceans.mp4&quot type=”video/mp4&quot></source>
+ <source src=”//vjs.zencdn.net/v/oceans.webm” type=”video/webm”></source>
+ <source src=”//vjs.zencdn.net/v/oceans.ogv” type=”video/ogg”></source>
+ <p class=”vjs-no-js”>
+ To view this video please enable JavaScript, and consider upgrading to a web browser that
+ <a href=”http://videojs.com/html5-video-support/” target=”_blank”>
+ supports HTML5 video
+ </a>
+ </p>
+</video>
+    
+<a href="ranking.html">
+  <div style="margin:18px var(--container-padding)">
+    <img src="IMAGES/bag.png" style="width:100%;border-radius:12px;height:120px;object-fit:cover">
+  </div>
+</a>
+
+<div style="background:#fff; padding:20px; border-radius:16px; text-align:center;">
+  <span style="color:#fff; font-weight:700; font-size:18px;">متن بنر کاملاً سفید</span>
+
+<div style="background:#fff; padding:20px; border-radius:16px; text-align:center;">
+  <span style="color:#fff; font-weight:700; font-size:18px;">متن بنر کاملاً سفید</span>
+</div>
+    
+  <div class="fab">،</div>
 
 <!-- فوتر ثابت شبیه هدر -->
 <nav class="footerbar">
   <div class="row">
     <a class="item" href="index.html"><img src="IMAGES/InShot_20251129_213744659.png" alt="خانه">خانه</a>
-    <a class="item" href="prizes.html"><img src="IMAGES/InShot_20251204_183530922.png" alt="پخش زنده">پخش‌زنده</a>
+    <a class="item" href="tv"><img src="IMAGES/InShot_20251204_183530922.png" alt="پخش زنده">پخش‌زنده</a>
     <a class="item" href="actions.html"><img src="IMAGES/InShot_20251129_215704212.png" alt="کنش‌ها">کنش‌ها</a>
     <a class="item" href="ranking.html"><img src="IMAGES/InShot_20251129_214214795.png" alt="رده‌بندی">رده‌بندی</a>
     <a class="item" href="profile.html"><img src="IMAGES/InShot_20251129_214311963.png" alt="پروفایل">پروفایل</a>

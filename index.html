@@ -111,9 +111,9 @@ a{text-decoration:none; color:inherit;}
   <header class="topbar">
     <div class="row">
       <div class="tag"><a href="profile.html">شروع کن!</a></div>
-       <div class="hamburger">≡</div>
-  </div>
-</header>
+      <div class="hamburger">≡</div>
+    </div>
+  </header>
 
   <main>
     <section class="hero">
@@ -491,37 +491,22 @@ document.querySelectorAll('.custom-player').forEach(player=>{
 </div>
 
 <video
-<head>
-  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
-
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
-</head>
-
-<body>
-  <video
-    id="my-video"
-    class="video-js"
-    controls
-    preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
-    data-setup="{}"
-  >
-    <source src="MY_VIDEO.mp4" type="video/mp4" />
-    <source src="MY_VIDEO.webm" type="video/webm" />
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank"
-        >supports HTML5 video</a
-      >
-    </p>
-  </video>
-
-  <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
-</body>
+ id=”my-player”
+ class=”video-js”
+ controls
+ preload=”auto”
+ poster=”//vjs.zencdn.net/v/oceans.png”
+ data-setup=’{}’>
+ <source src=”//vjs.zencdn.net/v/oceans.mp4&quot type=”video/mp4&quot></source>
+ <source src=”//vjs.zencdn.net/v/oceans.webm” type=”video/webm”></source>
+ <source src=”//vjs.zencdn.net/v/oceans.ogv” type=”video/ogg”></source>
+ <p class=”vjs-no-js”>
+ To view this video please enable JavaScript, and consider upgrading to a web browser that
+ <a href=”http://videojs.com/html5-video-support/” target=”_blank”>
+ supports HTML5 video
+ </a>
+ </p>
+</video>
     
 <a href="ranking.html">
   <div style="margin:18px var(--container-padding)">
@@ -555,7 +540,7 @@ document.querySelectorAll('.custom-player').forEach(player=>{
   border-top-left-radius:28px;
   border-top-right-radius:28px;
   box-shadow:0 -6px 18px rgba(0,0,0,0.06);
-  background: url('IMAGES/bag.png') no-repeat center center;
+  background: url('../IMAGES/bag.png') no-repeat center center;
   background-size: cover;
   position: fixed;
   bottom: 0;
